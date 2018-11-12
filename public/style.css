@@ -1,0 +1,62 @@
+.footer {
+    position: fixed;
+    margin-left:180px;
+    bottom: 0;
+    width: 77%;
+    background-color: #fff151;
+    color: black;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.testingFooter{
+    text-align: justify;
+}
+
+.center_div{
+    margin: 0 auto;
+    padding-top: 0px;
+    padding-left: 350px;
+}
+#ping{
+    margin-top: o;
+}
+#pokopoko{
+    background-color: #fff151;
+}
+.footer p{
+
+    padding-top: 30px;
+    }
+.login_form{
+    height: 600px;
+}
+
+.template{
+    width: 100%;
+}
+
+
+.headersection{
+    background-color: #fff151;
+}
+.clear{overflow:hidden;}
+.logo{
+    float: left;
+    padding-top: 10px;
+    padding-left: 10px;
+    height: 80px;
+    width: 30px;
+}
+.logo2{
+float: left;
+    padding-top: 50px;
+    padding-left: 0px;
+}
+.logo3{
+    float:right;
+    height: 100px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+}
