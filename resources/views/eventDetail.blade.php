@@ -66,23 +66,31 @@
                     @foreach($research as $res)
 
                         {{$res->title}}
+                        @endforeach
+                    @endif
                 </td>
                 <td>
-                    {{$res->letter}}
+                    @if($research=='none')
+                        none
+                    @else
+                    @foreach($research as $res)
+                        {{$res->letter}}
 
                     @endforeach
                         @endif
                 </td>
                 <td>{{$start}}</td>
-                <td>{{$end}}</td>
-                <th>{{$budget}}</th>
+                    <td>{{$end}}</td>
+                <td>
+                    {{$budget}}
+                </td>
                 @if(Auth::User()->id==2)
-                <td><a href="#"
-                       button type="button" class="btn btn-primary">edit</abutton></td>
+                <td><abutton href="#"
+                       button type="button" class="btn btn-primary">edit</abutton></a></td>
 
                     @else
-                    <td><a href="#"
-                           button type="button" class="btn btn-primary">Detail</abutton></td>
+                    <td><abutton href="#"
+                           button type="button" class="btn btn-primary">Detail</abutton></a></td>
                 @endif
             </tr>
             </tbody>

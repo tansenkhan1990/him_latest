@@ -55,7 +55,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Login
                                     </button>
-                                    <a class="btn btn-danger"  href="{{ route('sendMail') }}" role="button">Reset password for admin only</a>
+                                    <a class="btn btn-danger"  href="{{ route('sendMail') }}" role="button">Reset password</a>
 
                                 </div>
                             </div>
