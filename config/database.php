@@ -58,11 +58,11 @@ return [
 
         'mysql2' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST2', '131.220.133.85'),
+            'host' => env('DB_HOST2', '131.220.133.11'),
             'port' => env('DB_PORT2', '3306'),
             'database' => env('DB_DATABASE2', 'dev'),
-            'username' => env('DB_USERNAME2', 'tan'),
-            'password' => env('DB_PASSWORD2', 'password'),
+            'username' => env('DB_USERNAME2', 'tansen'),
+            'password' => env('DB_PASSWORD2', 'pingpong16'),
             'unix_socket' => env('DB_SOCKET2', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
