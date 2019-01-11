@@ -3,6 +3,7 @@
 
     <div class="container center_div">
         <form class="navbar-form navbar-left"  action="{{route('searchEvent')}}">
+            {{ csrf_field() }}
             <div class="form-group">
                 <input type="text" name="event" class="form-control" placeholder="search event
  with title" >
@@ -45,4 +46,54 @@
         </table>
     </div>
 
+    @if(isset($users))
+
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Responsible</th>
+                <th>start</th>
+                <th>end</th>
+
+            </tr>
+            </thead>
+
+
+
+                @foreach($users as $user)
+
+
+                    <tbody>
+                    <tr>
+                        <td>{{$user->title}}</td>
+                        <td>{{$typo[$user->type]}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>
+                            @foreach($che as $ch)
+                                @if($user->id==$ch->event)
+                                    {{$ch->datum}}
+                                @endif
+                            @endforeach
+                        </td>
+                        <td>
+                        @foreach($che as $ch)
+                            @if($user->id==$ch->event)
+                                {{$ch->poko}}
+
+                                <td><a href="{{ route('showDetatilEvent', ['id' => $user->id]) }}"
+                                       button type="button" class="btn btn-success">detail</abutton></td>
+
+                                @endif
+                                @endforeach
+                                </td>
+                    </tr>
+
+                    </tbody>
+                @endforeach
+        </table>
+    </div>
+    @endif
 @endsection
