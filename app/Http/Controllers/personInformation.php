@@ -66,7 +66,10 @@ class personInformation extends Controller
         }
 
         foreach ($personInfo as $person) {
-            $street=$person->p_street;
+            $p_street=$person->p_street;
+            $p_suffix=$person->p_suffix;
+            $p_land=$person->p_land;
+            $p_place=$person->p_ort;
             $VIP=$person->vip;
             $group = $person->gruppe;
             $name = $person->name;
@@ -75,14 +78,12 @@ class personInformation extends Controller
             $mail1=$person->email1;
             $mail2=$person->email2;
             $street=$person->street;
-            //$p_street=$person->p_street;
             $place=$person->ort;
-            //$p_place=$person->p_ort;
             //$p_prefix=$person->p_prefix;
             $prefix=$person->prefix;
             $country=$person->land;
             $institute1=$person->institution1;
-            $institute1=$person->institution1;
+            $institute2=$person->institution2;
             //$p_country=$person->p_country;
             $nationality=$person->nationality;
             $statusPerson=$person->status;
@@ -90,6 +91,9 @@ class personInformation extends Controller
             $www=$person->www;
             $title=$person->titel;
             $salutation=$person->anrede;
+            $birthDay=$person->birthday;
+            $remarks=$person->bemerkungen;
+            $nameSuffix=$person->zusatz;
         }
         $salut=$a->select("select anrede from anreden where id=$salutation");
         foreach ($salut as $salu)
@@ -159,6 +163,11 @@ class personInformation extends Controller
             }
 
 
+        $ppp_country=$a->select("SELECT * FROM lands WHERE id=$p_land");
+            foreach ($ppp_country as $ppcountry)
+            {
+                $p_country=$ppcountry->land;
+            }
 
             $nation=$a->select("SELECT * FROM lands WHERE id=$nationality");
             foreach ($nation as $nat)
@@ -183,6 +192,26 @@ class personInformation extends Controller
         if ($statusPerson==0)
         {
             $statusPerson='unknown';
+        }
+        if ($birthDay=='0000-00-00')
+        {
+            $birthDay='not given';
+        }
+        if ($remarks==null)
+        {
+            $remarks='not given anything';
+        }
+        if ($nameSuffix==null)
+        {
+            $nameSuffix='none';
+        }
+        if($institute1==null)
+        {
+            $institute1='none';
+        }
+        if ($institute2==null)
+        {
+            $institute2='none';
         }
 
 /*
@@ -212,10 +241,13 @@ class personInformation extends Controller
             echo $group."<br>";
             echo $account."<br>";
                     */
-        return view('personalDetail',compact(['mail1','sal','mail2','gender','name',
+
+            return view('personalDetail',compact(['mail1','sal','mail2','gender','name',
             'statusPerson','VIP','tit','personNation','persondesh',
             'vorname','street','place','prefix','group',
-            'account','www','institute1','institute2']));
+            'account', 'www','institute1','institute2',
+                'birthDay','remarks',
+                'nameSuffix','p_street','p_suffix','p_place','p_country']));
         }
 
 

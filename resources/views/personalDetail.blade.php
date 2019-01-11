@@ -19,6 +19,8 @@
         <div class="panel panel-default">
             <div class="panel-body">First Name:  {{$vorname}}</div>
             <div class="panel-body">Last Name:   {{$name}}</div>
+            <div class="panel-body">Private Address:   {{$p_street}} ,
+             {{$p_place}}  , {{$p_suffix}}  , {{$p_country}}</div>
             <div class="panel-body">Email:  @if($mail1!=null)
             {{$mail1}}
 
@@ -56,15 +58,8 @@
 
                 @endif
             </div>
-            <div class="panel-body">Institution: @if($institute1!=null)
-                                                     {{$institute1}}
-                                                     @elseif($institute1=null)
-                {{$institute2}}
-                @elseif($institute2=null)
-
-                none
-                                                     @endif
-                </div>
+            <div class="panel-body">Institution1:{{$institute1}} </div>
+            <div class="panel-body">Institution2:{{$institute2}} </div>
 
 
         </div>
