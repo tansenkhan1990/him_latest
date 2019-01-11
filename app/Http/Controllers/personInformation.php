@@ -89,6 +89,16 @@ class personInformation extends Controller
             $account=$person->account;
             $www=$person->www;
             $title=$person->titel;
+            $salutation=$person->anrede;
+        }
+        $salut=$a->select("select anrede from anreden where id=$salutation");
+        foreach ($salut as $salu)
+        {
+            $sal=$salu->anrede;
+        }
+        if ($sal==null)
+        {
+            $sal='none';
         }
         switch ($title)
         {
@@ -202,7 +212,7 @@ class personInformation extends Controller
             echo $group."<br>";
             echo $account."<br>";
                     */
-        return view('personalDetail',compact(['mail1','mail2','gender','name',
+        return view('personalDetail',compact(['mail1','sal','mail2','gender','name',
             'statusPerson','VIP','tit','personNation','persondesh',
             'vorname','street','place','prefix','group',
             'account','www','institute1','institute2']));

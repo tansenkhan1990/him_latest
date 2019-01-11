@@ -33,6 +33,7 @@
             <div class="panel-body">Address: {{$street}}, {{$place}} , {{$prefix}}
                 , {{$persondesh}}</div>
             <div class="panel-body">Nationality:   {{$personNation}}</div>
+            <div class="panel-body">Salutation:   {{$sal}}</div>
             <div class="panel-body">VIP: {{ $VIP}}</div>
             <div class="panel-body">Gender: {{ $gender}}</div>
             <div class="panel-body">Status: {{ $statusPerson}}</div>
