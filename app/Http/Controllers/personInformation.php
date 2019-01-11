@@ -56,7 +56,7 @@ class personInformation extends Controller
 
 
 
-        $personStay=$a->select("SELECT * FROM `anwesenheit` WHERE `person` = 812");
+        $personStay=$a->select("SELECT * FROM `anwesenheit` WHERE `person` = $id");
         foreach ($personStay as $perDur)
         {
             $personInviteStart=$perDur->evon;
@@ -88,6 +88,21 @@ class personInformation extends Controller
             $statusPerson=$person->status;
             $account=$person->account;
             $www=$person->www;
+            $title=$person->titel;
+        }
+        switch ($title)
+        {
+            case 1:
+                $tit='Prof.Dr';
+                break;
+            case 2:
+                $tit="Dr";
+                break;
+            case 3:
+                $tit='PD Dr';
+                break;
+            default:
+                $tit='none';
         }
         if ($VIP==1)
         {
@@ -96,7 +111,8 @@ class personInformation extends Controller
         else{
             $VIP='NO VIP';
         }
-        $statusid=$a->select("select anrede from personen WHERE id=$id");
+       /*
+         $statusid=$a->select("select anrede from personen WHERE id=$id");
         foreach ($statusid as $status)
         {
             $title=$status->anrede;
@@ -106,6 +122,7 @@ class personInformation extends Controller
         {
             $tit=$salu->anrede;
         }
+        */
         if ($group==20001){
             $group='HIM Guest';
         }
