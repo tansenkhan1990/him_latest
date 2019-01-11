@@ -10,7 +10,7 @@
 
         @endif
 
-        @if(!empty($posts))
+        @if(isset($posts))
 
             <table class="table table-hover">
                 <thead>
