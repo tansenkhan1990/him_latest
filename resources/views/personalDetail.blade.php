@@ -33,13 +33,16 @@
             <div class="panel-body">Address: {{$street}}, {{$place}} , {{$prefix}}
                 , {{$persondesh}}</div>
             <div class="panel-body">Nationality:   {{$personNation}}</div>
+            <div class="panel-body">Name Suffix: {{ $nameSuffix}}</div>
             <div class="panel-body">Salutation:   {{$sal}}</div>
+            <div class="panel-body">Date of Birth:   {{$birthDay}}</div>
             <div class="panel-body">VIP: {{ $VIP}}</div>
             <div class="panel-body">Gender: {{ $gender}}</div>
             <div class="panel-body">Status: {{ $statusPerson}}</div>
             <div class="panel-body">Title: {{ $tit}}</div>
             <div class="panel-body">Group: {{ $group}}</div>
-            <div class="panel-body">Account: @if($account!=null){{ $account}}
+            <div class="panel-body">Remarks: {{ $remarks}}</div>
+            <div class="panel-body">IT Account: @if($account!=null){{ $account}}
             @else
             none
                                                  @endif
