@@ -1,73 +1,74 @@
 @extends('layouts.masterHomePage')
 @section('content')
+
+    
+
     <div class="container">
 
 
+
             <div class="btn-group btn-group-justified">
-                <a href="#" class="btn btn-primary">Basic Data</a>
-                <a href="#" class="btn btn-primary">Contact Detail</a>
-                <a href="#" class="btn btn-primary">Private Address</a>
-                <a href="#" class="btn btn-primary">Status</a>
-                <a href="#" class="btn btn-primary">Guest Visit</a>
-                <a href="#" class="btn btn-primary">Child Care</a>
-                <a href="#" class="btn btn-primary">Body/Function</a>
-                <a href="#" class="btn btn-primary">Him Activites</a>
-                <a href="#" class="btn btn-primary">Profile</a>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#bdata">Basic Data</a></li>
+                    <li><a data-toggle="tab" href="#contact">Contact Detail</a></li>
+                    <li><a data-toggle="tab" href="#paddress">Private address</a></li>
+                    <li><a data-toggle="tab" href="#gvisit">Guest visit</a></li>
+                    <li><a data-toggle="tab" href="#ccare">Child care</a></li>
+                    <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
+                    <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
+                    <li><a data-toggle="tab" href="#status">status</a></li>
+                    <li><a data-toggle="tab" href="#profile">Profile</a></li>
+                </ul>
+            </div>
+        <div class="tab-content">
+
+            <div id="bdata" class="tab-pane fade in active">
+                <h3>Basic information</h3>
+                <div class="panel panel-default">
+
+                    <div class="row">
+                        <div class="col-md-4"><div class="panel-body"><h5>Title</h5> {{ $tit}}</div>
+                            <div class="panel-body"><h5>First Name</h5> {{$vorname}}</div>
+                            <div class="panel-body"><h5>Last Name</h5> {{$name}}</div>
+                            <div class="panel-body"><h5>Name Suffix</h5> {{ $nameSuffix}}</div>
+                            <div class="panel-body"><h5>Gender</h5>{{ $gender}}</div>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="panel-body"><h5>VIP</h5>{{ $VIP}}</div>
+                            <div class="panel-body"><h5>Date of Birth</h5>{{$birthDay}}</div>
+                            <div class="panel-body"><h5>Group</h5>{{ $group}}</div>
+                            <div class="panel-body"><h5>Nationality</h5> {{$personNation}}</div>
+                            <div class="panel-body"><h5>Birth Place</h5>{{ $birthPlace}}</div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>Year of Phd</h5> {{$phd_year}}</div>
+                            <div class="panel-body"><h5>IT Account</h5> @if($account!=null){{ $account}}
+                                @else
+                                    none
+                                @endif
+                            </div>
+                            <div class="panel-body"><h5>Remarks</h5> {{ $remarks}}</div>
+                            <div class="panel-body">Picture have to add</div>
+                        </div>
+                    </div>
+
+
+
+
+            </div>
             </div>
 
-        <h2>Basic Information</h2>
-        <div class="panel panel-default">
-            <div class="panel-body">First Name:  {{$vorname}}</div>
-            <div class="panel-body">Last Name:   {{$name}}</div>
-            <div class="panel-body">Private Address:   {{$p_street}} ,
-             {{$p_place}}  , {{$p_suffix}}  , {{$p_country}}</div>
-            <div class="panel-body">Email:  @if($mail1!=null)
-            {{$mail1}}
-
-                @elseif($mail2!=null)
-                    , {{$mail2}}
-
-                @else
-                    Not Given
-                                                @endif
-
+            <div id="contact" class="tab-pane fade">
+                <h3>Contact Detail</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
-            <div class="panel-body">Address: {{$street}}, {{$place}} , {{$prefix}}
-                , {{$persondesh}}</div>
-            <div class="panel-body">Nationality:   {{$personNation}}</div>
-            <div class="panel-body">Name Suffix: {{ $nameSuffix}}</div>
-            <div class="panel-body">Salutation:   {{$sal}}</div>
-            <div class="panel-body">Date of Birth:   {{$birthDay}}</div>
-            <div class="panel-body">VIP: {{ $VIP}}</div>
-            <div class="panel-body">Gender: {{ $gender}}</div>
-            <div class="panel-body">Status: {{ $statusPerson}}</div>
-            <div class="panel-body">Title: {{ $tit}}</div>
-            <div class="panel-body">Group: {{ $group}}</div>
-            <div class="panel-body">Remarks: {{ $remarks}}</div>
-            <div class="panel-body">IT Account: @if($account!=null){{ $account}}
-            @else
-            none
-                                                 @endif
-            </div>
-            <div class="panel-body">Personal WebSite: @if($www!=null)
-                {{ $www}}
-                                                        }
-            @else
-                    none
-
-
-                @endif
-            </div>
-            <div class="panel-body">Institution1:{{$institute1}} </div>
-            <div class="panel-body">Institution2:{{$institute2}} </div>
 
 
         </div>
+    </div>
 
-
-
-
-        </div>
 
 
 
