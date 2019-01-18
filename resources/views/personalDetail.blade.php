@@ -62,7 +62,33 @@
 
             <div id="contact" class="tab-pane fade">
                 <h3>Contact Detail</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="panel panel-default">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel-body"><h5>Telephone</h5> {{$telephone}}</div>
+                    <div class="panel-body"><h5>Email</h5> {{$mail1}} ,{{$mail2}}</div>
+                    <div class="panel-body"><h5>Fax</h5> {{$fax}}</div>
+                    <div class="panel-body"><h5>Institutions</h5>
+                        {{$institute1}} , {{$institute2}}</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel-body"><h5>WWW</h5> {{$www}}</div>
+                    <div class="panel-body"><h5>University</h5>{{$university}}</div>
+                    <div class="panel-body"><h5>Address1</h5>{{$address1}}</div>
+                    <div class="panel-body"><h5>Address2</h5>{{$address2}}</div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel-body"><h5>prefix</h5> {{$prefix}}</div>
+                    <div class="panel-body"><h5>ort</h5>{{$place}}</div>
+                    <div class="panel-body"><h5>suffix</h5>{{$suffix}}</div>
+                    <div class="panel-body"><h5>land</h5>{{$persondesh}}</div>
+                </div>
+
+            </div>
+                </div>
+
+
             </div>
 
 
