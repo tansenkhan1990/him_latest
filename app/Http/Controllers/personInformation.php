@@ -65,7 +65,13 @@ class personInformation extends Controller
             $personStayEnd=$perDur->bis;
         }
 
+
         foreach ($personInfo as $person) {
+            $bank=$person->bankverbindung;
+            $p_prefix=$person->p_prefix;
+            $p_phone=$person->p_telefon;
+            $suffix=$person->suffix;
+            $fax=$person->fax;
             $p_street=$person->p_street;
             $p_suffix=$person->p_suffix;
             $p_land=$person->p_land;
@@ -79,9 +85,11 @@ class personInformation extends Controller
             $mail2=$person->email2;
             $street=$person->street;
             $place=$person->ort;
-            //$p_prefix=$person->p_prefix;
+            //$p_prefix=$perso
+            //n->p_prefix;
             $prefix=$person->prefix;
             $country=$person->land;
+            $birthPlace=$person->birthplace;
             $institute1=$person->institution1;
             $institute2=$person->institution2;
             //$p_country=$person->p_country;
@@ -94,6 +102,12 @@ class personInformation extends Controller
             $birthDay=$person->birthday;
             $remarks=$person->bemerkungen;
             $nameSuffix=$person->zusatz;
+            $phd_year=$person->year_phd;
+            $telephone=$person->telefon;
+            $university=$person->university;
+            $address1=$person->street;
+            $address2=$person->street2;
+
         }
         $salut=$a->select("select anrede from anreden where id=$salutation");
         foreach ($salut as $salu)
@@ -241,13 +255,60 @@ class personInformation extends Controller
             echo $group."<br>";
             echo $account."<br>";
                     */
+if ($address1==null)
+{
+    $address1='not given';
+}
+if ($address2==null)
+{
+    $address2='not given';
+}
+if ($university==null)
+{
+    $university='not given';
 
-            return view('personalDetail',compact(['mail1','sal','mail2','gender','name',
-            'statusPerson','VIP','tit','personNation','persondesh',
+}
+if ($telephone==null)
+{
+    $telephone='none';
+}
+if($phd_year==null)
+{
+    $phd_year='none';
+}
+if ($birthPlace==null)
+{
+    $birthPlace='not given';
+}
+if ($www==null)
+{
+    $www='none';
+}
+if ($fax==null){
+    $fax='none';
+}
+        if ($suffix==null){
+            $suffix='none';
+        }
+        if ($prefix==null){
+            $prefix='none';
+        }
+        if ($persondesh==null)
+        {
+            $persondesh='not given';
+        }
+        if ($bank==null)
+        {
+            $bank='not given';
+        }
+            return view('personalDetail',compact([
+                'mail1','sal','mail2','gender','name','suffix','persondesh',
+            'statusPerson','VIP','telephone','tit','personNation','persondesh',
             'vorname','street','place','prefix','group',
-            'account', 'www','institute1','institute2',
-                'birthDay','remarks',
-                'nameSuffix','p_street','p_suffix','p_place','p_country']));
+            'account', 'www','institute1','institute2','address2',
+                'birthDay','remarks','birthPlace','fax','university','address1',
+                'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
+               'p_phone','p_prefix','bank' ]));
         }
 
 
