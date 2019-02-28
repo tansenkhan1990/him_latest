@@ -12,11 +12,11 @@
                     <li class="active"><a data-toggle="tab" href="#bdata">Basic Data</a></li>
                     <li><a data-toggle="tab" href="#contact">Contact Detail</a></li>
                     <li><a data-toggle="tab" href="#paddress">Private address</a></li>
+                    <li><a data-toggle="tab" href="#status">status</a></li>
                     <li><a data-toggle="tab" href="#gvisit">Guest visit</a></li>
                     <li><a data-toggle="tab" href="#ccare">Child care</a></li>
                     <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
                     <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
-                    <li><a data-toggle="tab" href="#status">status</a></li>
                     <li><a data-toggle="tab" href="#profile">Profile</a></li>
                 </ul>
             </div>
@@ -59,6 +59,16 @@
 
             </div>
             </div>
+            <div id="status" class="tab-pane fade">
+                <h3>Status</h3>
+                <div class="panel panel-default">
+                    <div class="col-md-4">
+                        <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
+                        <div class="panel-body"><h5>from</h5>{{$from}}</div>
+                        <div class="panel-body"><h5>to</h5> {{$to}}</div>
+                    </div>
+                </div>
+            </div>
 
             <div id="contact" class="tab-pane fade">
                 <h3>Contact Detail</h3>
@@ -92,13 +102,40 @@
             </div>
 
 
+
+            <div id="paddress" class="tab-pane fade">
+                <h3>Private Address</h3>
+                <div class="panel panel-default">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>private phone</h5> {{$p_phone}}</div>
+                            <div class="panel-body"><h5>Road (private)</h5> {{$p_street}}</div>
+                            <div class="panel-body"><h5>prefix (private)</h5> {{$p_prefix}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>place</h5> {{$p_place}}</div>
+                            <div class="panel-body"><h5>suffix</h5> {{$p_suffix}}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>country</h5> {{$p_country}}</div>
+                            <div class="panel-body"><h5>Bank detail </h5> {{$bank}}</div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
         </div>
     </div>
-
-
-
-
-
-
-
 @endsection
