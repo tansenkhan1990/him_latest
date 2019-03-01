@@ -42,19 +42,15 @@ class personInformation extends Controller
 
         
 
-        $eventDates=$a->select("SELECT datum,datum-bis as poko FROM `dates` 
-WHERE event=$eventIdForPerson");
+        $eventDates=$a->select("SELECT d.datum, d.`datum-bis` 
+AS poko FROM dates d 
+WHERE d.event=$eventIdForPerson");
         foreach ($eventDates as $entdates)
         {
             $eventFrom=$entdates->datum;
-            $eventTo1=$entdates->poko;
+            $eventTo=$entdates->poko;
         }
-        $eventTo2=(string)$eventTo1;
-        $year1= substr($eventTo2,0,4);
-        $month1= substr($eventTo2,4,2);
-        $dates1= substr($eventTo2,6,2);
-        $eventTo=$year1."-".$month1."-".$dates1;
-        echo $eventTo;
+        
 
 
        /*  foreach ($eventNameForPerson as $eventForPerson)
