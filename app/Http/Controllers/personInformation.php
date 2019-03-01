@@ -19,25 +19,43 @@ class personInformation extends Controller
 
 
         $eventNameForPerson=$a->select("SELECT * FROM `teilnehmer` WHERE person=$id");
-        if ($eventNameForPerson!=null)
-        {
+
+
             foreach ($eventNameForPerson as $eventForPerson)
             {
                 $eventIdForPerson=$eventForPerson->event;
 
             }
 
-            $eventTitleForPerson=$a->select("select title from events where id=$eventIdForPerson");
+
+            $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
             foreach ($eventTitleForPerson as $eventDemo)
             {
                 $eventOfPerson=$eventDemo->title;
             }
+            if ($eventOfPerson=='null')
+            {
+                $eventOfPerson='none';
+            }
 
-        }
-        else{
-            $eventOfPerson='none';
 
+
+        
+
+        $eventDates=$a->select("SELECT datum,datum-bis as poko FROM `dates` 
+WHERE event=$eventIdForPerson");
+        foreach ($eventDates as $entdates)
+        {
+            $eventFrom=$entdates->datum;
+            $eventTo1=$entdates->poko;
         }
+        $eventTo2=(string)$eventTo1;
+        $year1= substr($eventTo2,0,4);
+        $month1= substr($eventTo2,4,2);
+        $dates1= substr($eventTo2,6,2);
+        $eventTo=$year1."-".$month1."-".$dates1;
+        echo $eventTo;
+
 
        /*  foreach ($eventNameForPerson as $eventForPerson)
         {
@@ -183,6 +201,42 @@ class personInformation extends Controller
                 $p_country=$ppcountry->land;
             }
 
+            $statusOfPerson=$a->select("SELECT * FROM statusen WHERE person=$id");
+            foreach ($statusOfPerson as $statusOfGuest)
+            {
+                $guestStatus=$statusOfGuest->status;
+                $from=$statusOfGuest->von;
+                $to=$statusOfGuest->bis;
+
+            }
+            switch ($guestStatus)
+            {
+                case 10000:
+                    $guestStatus='unknown';
+                    break;
+                case 10001:
+                    $guestStatus='PHD-Student';
+                    break;
+                case 10002:
+                    $guestStatus='Post Doc';
+                    break;
+                case 10003:
+                    $guestStatus='Assistant Professor';
+                    break;
+                case 10004:
+                    $guestStatus='Assistant Professor';
+                    break;
+                case 10005:
+                    $guestStatus='Full Professor';
+                    break;
+                case 10006:
+                    $guestStatus='Graduate';
+                    break;
+                default:
+                    $guestStatus='not given';
+            }
+
+
             $nation=$a->select("SELECT * FROM lands WHERE id=$nationality");
             foreach ($nation as $nat)
             {
@@ -228,33 +282,7 @@ class personInformation extends Controller
             $institute2='none';
         }
 
-/*
-            echo "Event Name: $eventOfPerson<br>";
-            echo "person invite start:$personInviteStart"."<br>";
-            echo "person invite end:$personInviteEnd"."<br>";
-            echo "person stay:$personStayStart"."<br>";
-            echo "person stay end:$personInviteEnd"."<br>";
-            echo "firstName:$vorname<br>";
-            echo "lastName: $name<br>";
-            //echo "event name:$eventName"."<br>";
-            echo $mail1."<br>";
-            echo $mail2."<br>";
-            echo $gender."<br>";
-            echo $name."<br>";
-            echo $statusPerson."<br>";
-            echo $VIP."<br>";
-            echo $mail1."<br>";
-            echo $mail2."<br>";
-            echo $tit."<br>";
-            echo $personNation."<br>";
-            echo $persondesh."<br>";
-            echo $vorname."<br>";
-            echo $street."<br>";
-            echo $place."<br>";
-            echo $prefix."<br>";
-            echo $group."<br>";
-            echo $account."<br>";
-                    */
+
 if ($address1==null)
 {
     $address1='not given';
@@ -308,7 +336,8 @@ if ($fax==null){
             'account', 'www','institute1','institute2','address2',
                 'birthDay','remarks','birthPlace','fax','university','address1',
                 'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
-               'p_phone','p_prefix','bank' ]));
+               'p_phone','p_prefix','bank','guestStatus','from','to','eventOfPerson',
+                'eventFrom']));
         }
 
 
