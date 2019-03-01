@@ -1,9 +1,18 @@
 @extends('layouts.masterHomePage')
 @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10 text-right"><a href="{{ route('showDetatilEvent',
+        ['id' =>$eventIdForPerson]) }}">
+                event: {{$eventOfPerson}}<br>
+        duration:{{$eventFrom}} To {{$eventTo}}
+            </a>
+        </div>
+    </div>
+    <br>
 
-    
 
-    <div class="container">
 
 
 
