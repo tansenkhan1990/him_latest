@@ -119,16 +119,39 @@
             </div>
 
 
-            <div id="Finance" class="tab-pane fade">
+            <div id="finance" class="tab-pane fade">
                 <h3>Finance information</h3>
                 <!-- Standard button -->
 
                 <div class="panel panel-default">
 
-                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
-                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
-                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>Fees</h5> {{$honorar}}</div>
+                            <div class="panel-body"><h5>Type</h5>{{$type}}</div>
+                            <div class="panel-body"><h5>Fax</h5> {{$fax}}</div>
+                            <div class="panel-body"><h5>Number</h5>{{$number}}</div>
+                            <div class="panel-body"><h5>Bemerkungen</h5>{{$personRemarks}}</div>
 
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>Accomodation Cost</h5>
+                                {{$accoCost}}</div>
+                            <div class="panel-body"><h5>Hosuing Benefit</h5>
+                                {{$housingBeniffit}}</div>
+                            <div class="panel-body"><h5>Per diem</h5>{{$perDiem}}</div>
+                            <div class="panel-body"><h5>Bank Information</h5>{{$bank}}</div>
+                            <div class="panel-body"><h5>Travel Expense</h5>{{$travelExpenses}}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>maximal</h5> {{$maximal}}</div>
+                            <div class="panel-body"><h5>sonstige</h5>{{$sonstige}}</div>
+                            <div class="panel-body"><h5>Bemerkung</h5>{{$comment}}</div>
+                            <div class="panel-body"><h5>Vertrag an Verwaltung</h5>{{$CA}}</div>
+                            <div class="panel-body"><h5>Vertrag an Gast</h5>{{$CG}}</div>
+
+                        </div>
 
                 </div>
 
