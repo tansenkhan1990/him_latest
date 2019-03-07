@@ -119,6 +119,33 @@
             </div>
 
 
+            <div id="paddress" class="tab-pane fade">
+                <h3>Private Address</h3>
+                <div class="panel panel-default">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>private phone</h5> {{$p_phone}}</div>
+                            <div class="panel-body"><h5>Road (private)</h5> {{$p_street}}</div>
+                            <div class="panel-body"><h5>prefix (private)</h5> {{$p_prefix}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>place</h5> {{$p_place}}</div>
+                            <div class="panel-body"><h5>suffix</h5> {{$p_suffix}}</div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>country</h5> {{$p_country}}</div>
+                            <div class="panel-body"><h5>Bank detail </h5> {{$bank}}</div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
             <div id="finance" class="tab-pane fade">
                 <h3>Finance information</h3>
                 <!-- Standard button -->
@@ -157,30 +184,6 @@
 
             </div>
 
-            <div id="paddress" class="tab-pane fade">
-                <h3>Private Address</h3>
-                <div class="panel panel-default">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>private phone</h5> {{$p_phone}}</div>
-                            <div class="panel-body"><h5>Road (private)</h5> {{$p_street}}</div>
-                            <div class="panel-body"><h5>prefix (private)</h5> {{$p_prefix}}</div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>place</h5> {{$p_place}}</div>
-                            <div class="panel-body"><h5>suffix</h5> {{$p_suffix}}</div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>country</h5> {{$p_country}}</div>
-                            <div class="panel-body"><h5>Bank detail </h5> {{$bank}}</div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </div>
 
 
 
