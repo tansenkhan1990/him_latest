@@ -360,6 +360,36 @@ if ($fax==null){
             $CG=$guestFin->h_vertrag_g;
 
         }
+        switch ($accoCost)
+        {
+            case 1: $accoCost='full refund';
+            break;
+            case 2: $accoCost='300 itself rest we provide';
+            break;
+            case 3: $accoCost='Grant';
+            break;
+            case 4: $accoCost='we:EZ, rest guest';
+            break;
+            default:
+                $accoCost='none';
+        }
+        if ($number==null)
+        {$number='none';}
+        if ($fax==null)
+        {$fax='none';}
+        if($honorar==null)
+        {$honorar='none';}
+        switch ($type)
+        {
+            case 1: $type='per month';
+            break;
+            case 2: $type='unique';
+            break;
+            case 3: $type='proportionally';
+            break;
+            default: $type='none';
+
+        }
 
         //
 
