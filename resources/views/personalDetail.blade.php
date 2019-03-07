@@ -37,6 +37,8 @@
 
                     <div class="row">
                         <div class="col-md-4"><div class="panel-body"><h5>Title</h5> {{ $tit}}</div>
+                            <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
+                            <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
                             <div class="panel-body"><h5>First Name</h5> {{$vorname}}</div>
                             <div class="panel-body"><h5>Last Name</h5> {{$name}}</div>
                             <div class="panel-body"><h5>Name Suffix</h5> {{ $nameSuffix}}</div>
@@ -70,12 +72,15 @@
             </div>
             <div id="status" class="tab-pane fade">
                 <h3>Status</h3>
+                <!-- Standard button -->
+
                 <div class="panel panel-default">
-                    <div class="col-md-4">
+
                         <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
-                        <div class="panel-body"><h5>from</h5>{{$from}}</div>
-                        <div class="panel-body"><h5>to</h5> {{$to}}</div>
-                    </div>
+                        <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
+                        <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+
+
                 </div>
             </div>
 
@@ -111,6 +116,23 @@
             </div>
 
 
+            <div id="gvisit" class="tab-pane fade">
+                <h3>Guest Visit</h3>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary">finance</button>
+                    <button type="button" class="btn btn-primary">Looking for a vacant flat</button>
+                    <button type="button" class="btn btn-primary">Looking for a vacent office</button>
+                    <button type="button" class="btn btn-primary">Looking for a vacant office room</button>
+                </div>
+
+
+                <div class="panel panel-default">
+                        <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
+                        <div class="panel-body"><h5>stay from</h5>{{$from}} to {{$to}}</div>
+                        <div class="panel-body"><h5>Invited from</h5>{{$from}} to {{$to}}</div>
+                    </div>
+                </div>
 
             <div id="paddress" class="tab-pane fade">
                 <h3>Private Address</h3>

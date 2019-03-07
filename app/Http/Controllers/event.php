@@ -39,7 +39,8 @@ as pear from personen");
         // $users=$a->select("select * from events WHERE title LIKE '%$event%'");
         $users=$a->select("select * from personen,events WHERE events.verantwortlicher=personen.id
 AND events.title LIKE '%$event%'");
-        $che=$a->select("SELECT d.datum, d.`datum-bis` AS poko, `event` from dates d, events e
+        $che=$a->select("SELECT d.datum, d.`datum-bis` AS poko, 
+`event` from dates d, events e
  where e.id = d.event");
         //foreach ($users as $user)
         //{

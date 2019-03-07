@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 */
 Auth::routes();
+ROute::get('/personStay','personInformation@PersonDetailInfo');
 Route::get('/getUpdateProfile', 'HomeController@getUpdateProfile')->name('getUpdateProfile');
 Route::post('/updateProfile', 'HomeController@updateProfile')->name('updateProfile');
 Route::post('/insertUser', 'HomeController@insertUser')->name('insertUser');
