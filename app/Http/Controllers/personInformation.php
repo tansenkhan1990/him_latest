@@ -34,8 +34,10 @@ class personInformation extends Controller
                 $guestStayTo=$guestStay->bis;
                 $guestInviteFrom=$guestStay->evon;
                 $guestInviteTo=$guestStay->ebis;
+                $anwesId=$guestStay->id;
 
             }
+
 
 
 
@@ -89,6 +91,7 @@ WHERE d.event=$eventIdForPerson");
             $personInviteEnd=$perDur->ebis;
             $personStayStart=$perDur->von;
             $personStayEnd=$perDur->bis;
+            $personRemarks=$perDur->bemerkung;
         }
 
 
@@ -337,7 +340,28 @@ if ($fax==null){
         {
             $bank='not given';
         }
-        //finance part
+        //***finance part***
+
+        $bankInfoPerson=$bank;
+        $guestFinances=$a->select("select * from honorar where id=$anwesId");
+        foreach ($guestFinances as $guestFin)
+        {
+            $honorar=$guestFin->h_honorar;
+            $type=$guestFin->h_honorar_type;
+            $number=$guestFin->h_honorar_anzahl;
+            $accoCost=-$guestFin->h_unterkunft;
+            $housingBeniffit=$guestFin->h_wohngeld;
+            $perDiem=$guestFin->h_per_diem;
+            $travelExpenses=$guestFin->h_reisekosten;
+            $maximal=$guestFin->h_maximal;
+            $sonstige=$guestFin->h_sonstige;
+            $comment=$guestFin->h_s_bemerkungen;
+            $CA=$guestFin->h_vertrag_v;
+            $CG=$guestFin->h_vertrag_g;
+
+        }
+
+        //
 
             return view('personalDetail',compact([
                 'mail1','sal','mail2','gender','name','suffix','persondesh',
@@ -348,7 +372,9 @@ if ($fax==null){
                 'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
                'p_phone','p_prefix','bank','guestStatus','from','to','eventOfPerson',
                 'eventFrom','eventTo','guestStayFrom','guestStayTo',
-                'guestInviteFrom','guestInviteTo']));
+                'guestInviteFrom','guestInviteTo','$bankInfoPerson','personRemarks',
+'honorar', 'type', 'number', 'accoCost','housingBeniffit', 'perDiem'
+            ,'travelExpenses','maximal','sonstige','comment','CA','CG']));
         }
 
 
