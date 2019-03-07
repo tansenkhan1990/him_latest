@@ -14,6 +14,7 @@ class personInformation extends Controller
     public function PersonDetailInfo($id){
 
         $a = DB::connection('mysql2');
+        $personId=$id;
         $personInfo=$a->select("select * from personen WHERE id=$id");
 
 
@@ -26,6 +27,17 @@ class personInformation extends Controller
                 $eventIdForPerson=$eventForPerson->event;
 
             }
+            $guestStays=$a->select("SELECT * FROM anwesenheit WHERE person =$id");
+            foreach ($guestStays as $guestStay)
+            {
+                $guestStayFrom=$guestStay->von;
+                $guestStayTo=$guestStay->bis;
+                $guestInviteFrom=$guestStay->evon;
+                $guestInviteTo=$guestStay->ebis;
+
+            }
+
+
 
 
             $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
@@ -50,7 +62,7 @@ WHERE d.event=$eventIdForPerson");
             $eventFrom=$entdates->datum;
             $eventTo=$entdates->poko;
         }
-        
+
 
 
        /*  foreach ($eventNameForPerson as $eventForPerson)
@@ -325,15 +337,18 @@ if ($fax==null){
         {
             $bank='not given';
         }
+        //finance part
+
             return view('personalDetail',compact([
                 'mail1','sal','mail2','gender','name','suffix','persondesh',
             'statusPerson','VIP','telephone','tit','personNation','persondesh',
-            'vorname','street','place','prefix','group',
+            'vorname','street','place','prefix','group','eventIdForPerson',
             'account', 'www','institute1','institute2','address2',
                 'birthDay','remarks','birthPlace','fax','university','address1',
                 'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
                'p_phone','p_prefix','bank','guestStatus','from','to','eventOfPerson',
-                'eventFrom']));
+                'eventFrom','eventTo','guestStayFrom','guestStayTo',
+                'guestInviteFrom','guestInviteTo']));
         }
 
 
