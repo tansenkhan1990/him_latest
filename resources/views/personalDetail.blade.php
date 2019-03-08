@@ -23,13 +23,11 @@
                     <li><a data-toggle="tab" href="#paddress">Private address</a></li>
                     <li><a data-toggle="tab" href="#status">status</a></li>
                     <li><a data-toggle="tab" href="#finance">Finance</a></li>
-                    <li><a data-toggle="tab" href="#finance">Search vacant flat</a></li>
-                    <li><a data-toggle="tab" href="#finance">Search vacant office</a></li>
-                    <li><a data-toggle="tab" href="#finance">Hotel vacant Room</a></li>
                     <li><a data-toggle="tab" href="#ccare">Child care</a></li>
                     <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
                     <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
                     <li><a data-toggle="tab" href="#profile">Profile</a></li>
+                    <li><a data-toggle="tab" href="#fin">testing</a></li>
                 </ul>
             </div>
         <div class="tab-content">
@@ -86,6 +84,33 @@
 
                 </div>
             </div>
+
+            <!--testing poko-->
+            <div id="poko" class="tab-pane fade">
+                <h3>poko</h3>
+                <!-- Standard button -->
+
+                <div class="btn-group btn-group-justified">
+                    <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+                        <li><a data-toggle="tab" href="#poko">poko</a></li>
+                    </ul>
+                </div>
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
+                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
+                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+
+
+                </div>
+            </div>
+            <!--ending poko-->
+
+
+
+
 
             <div id="contact" class="tab-pane fade">
                 <h3>Contact Detail</h3>
@@ -144,28 +169,33 @@
 
             </div>
 
-<!--testig-->
-            <div id="profile" class="tab-pane fade">
-                <h3>profile</h3>
-                <!-- Standard button -->
 
-
-                <div class="panel panel-default">
-
-                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
-                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
-                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
-
-
-                </div>
-            </div>
-<!--testing-->
             <div id="finance" class="tab-pane fade">
-                <h3>Finance information</h3>
+
+                <h3>Finance Infromation</h3>
                 <!-- Standard button -->
 
-                <div class="panel panel-default">
+                <div class="btn-group btn-group-justified">
+                    <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+                        <li><a data-toggle="tab" href="#poko">poko</a></li>
+                    </ul>
+                </div>
 
+            </div>
+
+                <!--ending button-->
+<div id="fin" class="tab-pane fade">
+
+    <h3>Fee / reimbursement </h3>
+    <div class="btn-group btn-group-justified">
+        <ul class="nav nav-tabs">
+            <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+            <li><a data-toggle="tab" href="#poko">poko</a></li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="panel-body"><h5>Fees</h5> {{$honorar}}</div>
@@ -197,6 +227,8 @@
                 </div>
 
             </div>
+</div>
+
 
 
 
@@ -208,5 +240,4 @@
 
 
         </div>
-    </div>
 @endsection
