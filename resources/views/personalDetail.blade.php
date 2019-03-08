@@ -27,7 +27,6 @@
                     <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
                     <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
                     <li><a data-toggle="tab" href="#profile">Profile</a></li>
-                    <li><a data-toggle="tab" href="#fin">testing</a></li>
                 </ul>
             </div>
         <div class="tab-content">
@@ -93,7 +92,6 @@
                 <div class="btn-group btn-group-justified">
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
-                        <li><a data-toggle="tab" href="#poko">poko</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
@@ -184,7 +182,6 @@
                 <div class="btn-group btn-group-justified">
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
-                        <li><a data-toggle="tab" href="#poko">poko</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
@@ -192,6 +189,14 @@
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
                     </ul>
+
+                </div>
+                <div class="panel panel-default">
+                <ul>
+                    <li>Occupancy: ( add ):</li>
+                    <li>Hotels: (to add ):</li>
+                    <li>Apartments: (to add ):</li>
+                </ul>
                 </div>
 
             </div>
@@ -203,7 +208,6 @@
     <div class="btn-group btn-group-justified">
         <ul class="nav nav-tabs">
             <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
-            <li><a data-toggle="tab" href="#poko">poko</a></li>
             <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
             <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
             <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
