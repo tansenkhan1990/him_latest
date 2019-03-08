@@ -360,36 +360,83 @@ if ($fax==null){
             $CG=$guestFin->h_vertrag_g;
 
         }
-        switch ($accoCost)
-        {
-            case 1: $accoCost='full refund';
-            break;
-            case 2: $accoCost='300 itself rest we provide';
-            break;
-            case 3: $accoCost='Grant';
-            break;
-            case 4: $accoCost='we:EZ, rest guest';
-            break;
-            default:
-                $accoCost='none';
-        }
-        if ($number==null)
-        {$number='none';}
-        if ($fax==null)
-        {$fax='none';}
+
         if($honorar==null)
         {$honorar='none';}
         switch ($type)
         {
             case 1: $type='per month';
-            break;
+                break;
             case 2: $type='unique';
-            break;
+                break;
             case 3: $type='proportionally';
-            break;
+                break;
             default: $type='none';
 
         }
+        if ($number==null)
+        {$number='none';}
+        if ($fax==null)
+        {$fax='none';}
+        switch ($accoCost)
+        {
+            case 1: $accoCost='full refund';
+                break;
+            case 2: $accoCost='300 itself rest we provide';
+                break;
+            case 3: $accoCost='Grant';
+                break;
+            case 4: $accoCost='we:EZ, rest guest';
+                break;
+            default:
+                $accoCost='none';
+        }
+        if ($housingBeniffit==null)
+        {$housingBeniffit='none';}
+        switch ($perDiem)
+        {
+            case 1: $perDiem='Ja';
+            break;
+            case 2: $perDiem='Anteiling';
+            break;
+            default: $perDiem='Nein';
+        }
+        switch ($travelExpenses)
+        {
+            case 1: $travelExpenses='ja';
+            break;
+            case 2:$travelExpenses='angefragt';
+            break;
+            case 3: $travelExpenses='anteilig';
+            break;
+            case 4: $travelExpenses='statement erforderlich';
+            break;
+            default: $travelExpenses='nein';
+        }
+        if ($maximal==null)
+        {
+            $maximal='none';
+        }
+        if ($sonstige==null)
+        {
+            $sonstige='none';
+        }
+        if ($comment==null)
+        {
+            $comment='none';
+        }
+        if ($CA=='0000-00-00')
+        {
+            $CA='not given';
+
+        }
+        if ($CG=='0000-00-00')
+        {
+            $CG='not given';
+        }
+
+
+
 
         //
 
