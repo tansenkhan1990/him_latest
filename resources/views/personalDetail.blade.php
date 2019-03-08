@@ -94,6 +94,12 @@
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#poko">poko</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
+                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
+                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
+
                     </ul>
                 </div>
 
@@ -179,6 +185,12 @@
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#poko">poko</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
+                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
+                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
+
                     </ul>
                 </div>
 
@@ -192,6 +204,12 @@
         <ul class="nav nav-tabs">
             <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
             <li><a data-toggle="tab" href="#poko">poko</a></li>
+            <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+            <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+            <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
+            <li><a data-toggle="tab" href="#poko">diposit</a></li>
+            <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
+
         </ul>
     </div>
 
