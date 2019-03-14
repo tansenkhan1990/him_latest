@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Occupancy;
 use App\Arbeitplatze;
+use App\Residance;
+use App\Flat;
 class personInformation extends Controller
 {
     public function __construct()
@@ -455,8 +457,27 @@ if ($fax==null){
         }
 
         //occupancy end
+        //Residance Part
+        $residence=Residance::where('mieter',"$id")->get();
+        foreach ($residence as $resi)
+        {
+            $flats_id=$resi->wohnung;
+
+        }
+        $flats_details=Flat::where('id',$flats_id)->get();
+        foreach ($flats_details as $flat_information)
+        {
+            $flat_place=$flat_information->ort;
+            $flat_floor=$flat_information->etage;
+            $flat_street=$flat_information->strasse;
+        }
+
+
+
+        //Residance End
 
             return view('personalDetail',compact([
+                'flat_place','flat_floor','flat_street',
                 'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
                 'mail1','sal','mail2','gender','name','suffix','persondesh',
             'statusPerson','VIP','telephone','tit','personNation','persondesh',

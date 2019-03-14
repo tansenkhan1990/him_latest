@@ -139,10 +139,10 @@
                             Telephone:{{$occ_telefon}}
                             </p>
                         </li>
-                        <li><h4>Hotels(edit):</h4><p>
-
+                        <li><h4>Appartment(edit):</h4><p>
+                                {{$flat_street}} ,Floor: {{$flat_floor}} , {{$flat_place}}
                             </p></li>
-                        <li><h4>Apartments(edit):</h4><p>
+                        <li><h4>Hotels(edit):</h4><p>
 
                             </p></li>
                     </ul>
