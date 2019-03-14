@@ -115,7 +115,7 @@
             <!--ending poko-->
             <!--current location-->
             <div id="currentLocation" class="tab-pane fade">
-                <h3>poko</h3>
+                <h3>Current working place</h3>
                 <!-- Standard button -->
 
                 <div class="btn-group btn-group-justified">
@@ -133,14 +133,18 @@
 
                 <div class="panel panel-default">
                     <ul>
-                        <li>Occupancy (edit):<br>from {{$occ_from}} to {{$occ_to}}<br>
+                        <li><h4>Occupancy (edit):</h4><p>from {{$occ_from}} to {{$occ_to}}<br>
                             office:{{$occ_office}}<br>
                             workplace:{{$occ_workplace}}<br>
                             Telephone:{{$occ_telefon}}
-                            <br><br>
+                            </p>
                         </li>
-                        <li>Hotels: (to add ):</li>
-                        <li>Apartments: (to add ):</li>
+                        <li><h4>Hotels(edit):</h4><p>
+
+                            </p></li>
+                        <li><h4>Apartments(edit):</h4><p>
+
+                            </p></li>
                     </ul>
                 </div>
             </div>
