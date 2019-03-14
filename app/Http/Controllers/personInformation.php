@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use App\Occupancy;
+use App\Arbeitplatze;
 class personInformation extends Controller
 {
     public function __construct()
@@ -434,13 +435,29 @@ if ($fax==null){
         {
             $CG='not given';
         }
+        //occupancy part
+        $occupancies=Occupancy::where('person',"$id")->get();
+        foreach ($occupancies as $occ)
+        {
+            $occ_from=$occ->von;
+             $occ_to=$occ->bis;
+             $occ_person=$occ->person;
+              $occ_arbeitsplatz=$occ->arbeitsplatz;
+        }
 
+        $occ_arbeitsplatzs=Arbeitplatze::
+        where('id',"$occ_arbeitsplatz")->get();
+        foreach ($occ_arbeitsplatzs as $occ_arbeit)
+        {
+            $occ_office=$occ_arbeit->buro;
+            $occ_workplace=$occ_arbeit->nummer;
+            $occ_telefon=$occ_arbeit->telefon;
+        }
 
-
-
-        //
+        //occupancy end
 
             return view('personalDetail',compact([
+                'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
                 'mail1','sal','mail2','gender','name','suffix','persondesh',
             'statusPerson','VIP','telephone','tit','personNation','persondesh',
             'vorname','street','place','prefix','group','eventIdForPerson',
