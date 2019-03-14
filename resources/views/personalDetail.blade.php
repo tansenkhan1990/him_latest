@@ -92,6 +92,7 @@
                 <div class="btn-group btn-group-justified">
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+                        <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
@@ -111,6 +112,33 @@
                 </div>
             </div>
             <!--ending poko-->
+            <!--current location-->
+            <div id="currentLocation" class="tab-pane fade">
+                <h3>poko</h3>
+                <!-- Standard button -->
+
+                <div class="btn-group btn-group-justified">
+                    <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+                        <li><a data-toggle="tab" href="#poko">Current location</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
+                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
+                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="panel panel-default">
+                    <ul>
+                        <li>Occupancy: ( add ):</li>
+                        <li>Hotels: (to add ):</li>
+                        <li>Apartments: (to add ):</li>
+                    </ul>
+                </div>
+            </div>
+            <!--current location-->
 
 
 
@@ -183,6 +211,7 @@
                     <ul class="nav nav-tabs">
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+                        <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
                         <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
@@ -192,11 +221,11 @@
 
                 </div>
                 <div class="panel panel-default">
-                <ul>
-                    <li>Occupancy: ( add ):</li>
-                    <li>Hotels: (to add ):</li>
-                    <li>Apartments: (to add ):</li>
-                </ul>
+                    <ul>
+                        <li>Occupancy: ( add ):</li>
+                        <li>Hotels: (to add ):</li>
+                        <li>Apartments: (to add ):</li>
+                    </ul>
                 </div>
 
             </div>
@@ -209,6 +238,7 @@
         <ul class="nav nav-tabs">
             <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
             <li><a data-toggle="tab" href="#poko">vacant flat</a></li>
+            <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
             <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
             <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
             <li><a data-toggle="tab" href="#poko">diposit</a></li>
