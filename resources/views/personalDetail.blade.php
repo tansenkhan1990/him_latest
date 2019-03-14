@@ -22,7 +22,7 @@
                     <li><a data-toggle="tab" href="#contact">Contact Detail</a></li>
                     <li><a data-toggle="tab" href="#paddress">Private address</a></li>
                     <li><a data-toggle="tab" href="#status">status</a></li>
-                    <li><a data-toggle="tab" href="#finance">Finance</a></li>
+                    <li><a data-toggle="tab" href="#finance">Guest Visit</a></li>
                     <li><a data-toggle="tab" href="#ccare">Child care</a></li>
                     <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
                     <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
