@@ -18,6 +18,25 @@ class personInformation extends Controller
 
         $a = DB::connection('mysql2');
         $personId=$id;
+        $honorar='none';
+        $type='none';
+        $number='none';
+        $accoCost='none';
+        $housingBeniffit='none';
+        $perDiem='none';
+        $travelExpenses='none';
+        $maximal='none';
+        $sonstige='none';
+        $comment='none';
+        $CA='none';
+        $CG='none';
+        $guestStayFrom='none';
+        $guestStayTo='none';
+        $personRemarks='none';
+        $guestInviteFrom ='none';
+        $guestInviteTo  ='none';
+        $anwesId=-999;
+        $guestStatus='none';
         $eventOfPerson='none';
         $eventIdForPerson=-1;
         $personInfo=$a->select("select * from personen WHERE id=$id");
@@ -370,8 +389,7 @@ if ($fax==null){
 
         }
 
-        if($honorar==null)
-        {$honorar='none';}
+
         switch ($type)
         {
             case 1: $type='per month';
