@@ -8,6 +8,9 @@ use App\Occupancy;
 use App\Arbeitplatze;
 use App\Residance;
 use App\Flat;
+use App\Hotel;
+use App\HotelReserve;
+
 class personInformation extends Controller
 {
     public function __construct()
@@ -516,11 +519,50 @@ if ($fax==null){
            }
        }
 
+       //Residance End
 
+        //hotels start
+        $hotelsdate=HotelReserve::where('person',$id)->get();
+        $personHotel='none';
+        $hotelFrom='none';
+        $hotelTo='none';
+        $hotelId='none';
+        $hotelZimmer='none';
+        $hotelName='none';
+       if ($hotelsdate!=null){
+           foreach ($hotelsdate as $hoteldate)
+           {
+               $personHotel=$hoteldate->person;
+               $hotelFrom=$hoteldate->von;
+               $hotelTo=$hoteldate->bis;
+               $hotelId=$hoteldate->hotel;
+               $hotelZimmer=$hoteldate->zimmer;
+           }
+           switch ($hotelZimmer)
+           {
+               case 0: $hotelZimmer='EZ';
+               break;
+               case 1: $hotelZimmer='Dz';
+               break;
+               case 2: $hotelZimmer='3 Bett';
+               break;
+               case 3: $hotelZimmer='Suite';
+               break;
+               case 4: $hotelZimmer='twin';
+               break;
+               default: $hotelZimmer='none';
+           }
+           $hotelDetails=Hotel::where('id',$hotelId)->get();
+           foreach ($hotelDetails as $hotelinfo)
+           {
+               $hotelName=$hotelinfo->name;
+           }
+       }
 
-        //Residance End
+        //hotels end
 
             return view('personalDetail',compact([
+                'hotelFrom','hotelTo','hotelZimmer','hotelName',
                 'flat_place','flat_floor','flat_street',
                 'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
                 'mail1','sal','mail2','gender','name','suffix','persondesh',

@@ -142,7 +142,10 @@
                         <li><h4>Appartment(edit):</h4><p>
                                 {{$flat_street}} ,Floor: {{$flat_floor}} , {{$flat_place}}
                             </p></li>
-                        <li><h4>Hotels(edit):</h4><p>
+                        <li><h4>Hotels(edit):</h4>
+                            {{$hotelName}} , {{$hotelZimmer}} ,
+                            Duration({{$hotelFrom }}to {{$hotelTo}})
+                            <p>
 
                             </p></li>
                     </ul>
