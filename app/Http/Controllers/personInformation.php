@@ -18,54 +18,60 @@ class personInformation extends Controller
 
         $a = DB::connection('mysql2');
         $personId=$id;
+        $eventOfPerson='none';
+        $eventIdForPerson=-1;
         $personInfo=$a->select("select * from personen WHERE id=$id");
 
 
 
         $eventNameForPerson=$a->select("SELECT * FROM `teilnehmer` WHERE person=$id");
 
+        if ($eventNameForPerson!=null){
 
             foreach ($eventNameForPerson as $eventForPerson)
             {
                 $eventIdForPerson=$eventForPerson->event;
 
             }
-            $guestStays=$a->select("SELECT * FROM anwesenheit WHERE person =$id");
-            foreach ($guestStays as $guestStay)
-            {
-                $guestStayFrom=$guestStay->von;
-                $guestStayTo=$guestStay->bis;
-                $guestInviteFrom=$guestStay->evon;
-                $guestInviteTo=$guestStay->ebis;
-                $anwesId=$guestStay->id;
-
-            }
 
 
 
+                $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
+                foreach ($eventTitleForPerson as $eventDemo)
+                {
+                    $eventOfPerson=$eventDemo->title;
+                }
+                if ($eventOfPerson=='null')
+                {
+                    $eventOfPerson='none';
+                }
 
 
-            $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
-            foreach ($eventTitleForPerson as $eventDemo)
-            {
-                $eventOfPerson=$eventDemo->title;
-            }
-            if ($eventOfPerson=='null')
-            {
-                $eventOfPerson='none';
-            }
+        }
+        $guestStays=$a->select("SELECT * FROM anwesenheit WHERE person =$id");
+        foreach ($guestStays as $guestStay)
+        {
+            $guestStayFrom=$guestStay->von;
+            $guestStayTo=$guestStay->bis;
+            $guestInviteFrom=$guestStay->evon;
+            $guestInviteTo=$guestStay->ebis;
+            $anwesId=$guestStay->id;
+        }
 
 
-
-        
 
         $eventDates=$a->select("SELECT d.datum, d.`datum-bis` 
 AS poko FROM dates d 
 WHERE d.event=$eventIdForPerson");
-        foreach ($eventDates as $entdates)
+        $eventFrom='none';
+        $eventTo='none';
+        if ($eventDates!=null)
         {
-            $eventFrom=$entdates->datum;
-            $eventTo=$entdates->poko;
+            foreach ($eventDates as $entdates)
+            {
+                $eventFrom=$entdates->datum;
+                $eventTo=$entdates->poko;
+            }
         }
 
 
@@ -438,39 +444,59 @@ if ($fax==null){
             $CG='not given';
         }
         //occupancy part
+        $occ_from='not given';
+        $occ_to='not given';
+        $occ_person='not given';
+        $occ_arbeitsplatz='not given';
         $occupancies=Occupancy::where('person',"$id")->get();
-        foreach ($occupancies as $occ)
+        if ($occupancies!=null)
         {
-            $occ_from=$occ->von;
-             $occ_to=$occ->bis;
-             $occ_person=$occ->person;
-              $occ_arbeitsplatz=$occ->arbeitsplatz;
+            foreach ($occupancies as $occ)
+            {
+                $occ_from=$occ->von;
+                $occ_to=$occ->bis;
+                $occ_person=$occ->person;
+                $occ_arbeitsplatz=$occ->arbeitsplatz;
+            }
         }
-
+        $occ_office='not given';
+        $occ_workplace='not given';
+        $occ_telefon='not given';
         $occ_arbeitsplatzs=Arbeitplatze::
         where('id',"$occ_arbeitsplatz")->get();
-        foreach ($occ_arbeitsplatzs as $occ_arbeit)
+        if ($occ_arbeitsplatzs!=null)
         {
-            $occ_office=$occ_arbeit->buro;
-            $occ_workplace=$occ_arbeit->nummer;
-            $occ_telefon=$occ_arbeit->telefon;
+            foreach ($occ_arbeitsplatzs as $occ_arbeit)
+            {
+                $occ_office=$occ_arbeit->buro;
+                $occ_workplace=$occ_arbeit->nummer;
+                $occ_telefon=$occ_arbeit->telefon;
+            }
         }
+
 
         //occupancy end
         //Residance Part
+        $flat_place="not given";
+        $flat_floor="not given";
+        $flat_street="not given";
+        $flats_id=-9999;
         $residence=Residance::where('mieter',"$id")->get();
-        foreach ($residence as $resi)
-        {
-            $flats_id=$resi->wohnung;
 
-        }
-        $flats_details=Flat::where('id',$flats_id)->get();
-        foreach ($flats_details as $flat_information)
-        {
-            $flat_place=$flat_information->ort;
-            $flat_floor=$flat_information->etage;
-            $flat_street=$flat_information->strasse;
-        }
+       if ($residence!=null){
+           foreach ($residence as $resi)
+           {
+               $flats_id=$resi->wohnung;
+
+           }
+           $flats_details=Flat::where('id',$flats_id)->get();
+           foreach ($flats_details as $flat_information)
+           {
+               $flat_place=$flat_information->ort;
+               $flat_floor=$flat_information->etage;
+               $flat_street=$flat_information->strasse;
+           }
+       }
 
 
 
