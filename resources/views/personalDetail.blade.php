@@ -173,23 +173,38 @@
                 </div>
 
                 <div class="panel panel-default">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>private phone</h5> {{$p_phone}}</div>
-                            <div class="panel-body"><h5>Road (private)</h5> {{$p_street}}</div>
-                            <div class="panel-body"><h5>prefix (private)</h5> {{$p_prefix}}</div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>place</h5> {{$p_place}}</div>
-                            <div class="panel-body"><h5>suffix</h5> {{$p_suffix}}</div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="panel-body"><h5>country</h5> {{$p_country}}</div>
-                            <div class="panel-body"><h5>Bank detail </h5> {{$bank}}</div>
-                        </div>
-
+                    <div class="container">
+                        <h2>Basic Table</h2>
+                        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>John</td>
+                                <td>Doe</td>
+                                <td>john@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>Mary</td>
+                                <td>Moe</td>
+                                <td>mary@example.com</td>
+                            </tr>
+                            <tr>
+                                <td>July</td>
+                                <td>Dooley</td>
+                                <td>july@example.com</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
+
                 </div>
 
 
