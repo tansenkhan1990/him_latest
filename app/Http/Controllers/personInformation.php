@@ -468,8 +468,8 @@ WHERE d.event=$eventIdForPerson");
 
         $residencetesting=$a->
         select("SELECT distinct(wohnung) FROM wohnbelegung WHERE
-(von<2008-09-01 AND bis<2008-10-31) OR 
-(von>2008-09-01 and bis>2008-10-31)");
+(von<$personStayStart AND bis<$personStayEnd) OR 
+(von>$personStayStart and bis>$personStayEnd)");
         $cc=0;
         foreach ($residencetesting as $testResidence)
         {
@@ -480,6 +480,7 @@ WHERE d.event=$eventIdForPerson");
             }
 
         }
+
        for ($j=1;$j<=$cc;$j++)
         {
             $vacentFlats[$j]=$a->
