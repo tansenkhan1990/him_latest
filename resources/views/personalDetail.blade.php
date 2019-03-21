@@ -175,33 +175,34 @@
                 <div class="panel panel-default">
 
                     <div class="container">
-                        <h2>Basic Table</h2>
-                        <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Firstname</th>
-                                <th>Lastname</th>
-                                <th>Email</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>John</td>
-                                <td>Doe</td>
-                                <td>john@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>Mary</td>
-                                <td>Moe</td>
-                                <td>mary@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>July</td>
-                                <td>Dooley</td>
-                                <td>july@example.com</td>
-                            </tr>
-                            </tbody>
+                        <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Street</th>
+                                    <th>Appartment</th>
+                                    <th>Floor</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        @if($vacentFlats!=null)
+                                            @foreach($vacentFlats as $vacantFlat)
+                                                @foreach($vacantFlat as $vacF)
+                                        <td>{{$vacF->strasse}}</td>
+                                        <td>{{$vacF->wohnungs_nr}}</td>
+                                        <td>{{$vacF->etage}}</td>
+
+                                        <td><a href="#" button type="button" class="btn btn-success">Book this</abutton></td>
+                                    </tr>
+                                    @endforeach
+                                            @endforeach
+                                            @endif
+
+                                </tbody>
+
                         </table>
                     </div>
 
