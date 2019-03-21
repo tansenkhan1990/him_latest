@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use DB;
 use App\Occupancy;
@@ -10,7 +8,6 @@ use App\Residance;
 use App\Flat;
 use App\Hotel;
 use App\HotelReserve;
-
 class personInformation extends Controller
 {
     public function __construct()
@@ -18,7 +15,6 @@ class personInformation extends Controller
         $this->middleware('auth');
     }
     public function PersonDetailInfo($id){
-
         $a = DB::connection('mysql2');
         $personId=$id;
         $honorar='none';
@@ -43,32 +39,21 @@ class personInformation extends Controller
         $eventOfPerson='none';
         $eventIdForPerson=-1;
         $personInfo=$a->select("select * from personen WHERE id=$id");
-
-
-
         $eventNameForPerson=$a->select("SELECT * FROM `teilnehmer` WHERE person=$id");
-
         if ($eventNameForPerson!=null){
-
             foreach ($eventNameForPerson as $eventForPerson)
             {
                 $eventIdForPerson=$eventForPerson->event;
-
             }
-
-
-
-                $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
-                foreach ($eventTitleForPerson as $eventDemo)
-                {
-                    $eventOfPerson=$eventDemo->title;
-                }
-                if ($eventOfPerson=='null')
-                {
-                    $eventOfPerson='none';
-                }
-
-
+            $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
+            foreach ($eventTitleForPerson as $eventDemo)
+            {
+                $eventOfPerson=$eventDemo->title;
+            }
+            if ($eventOfPerson=='null')
+            {
+                $eventOfPerson='none';
+            }
         }
         $guestStays=$a->select("SELECT * FROM anwesenheit WHERE person =$id");
         foreach ($guestStays as $guestStay)
@@ -79,9 +64,6 @@ class personInformation extends Controller
             $guestInviteTo=$guestStay->ebis;
             $anwesId=$guestStay->id;
         }
-
-
-
         $eventDates=$a->select("SELECT d.datum, d.`datum-bis` 
 AS poko FROM dates d 
 WHERE d.event=$eventIdForPerson");
@@ -95,26 +77,16 @@ WHERE d.event=$eventIdForPerson");
                 $eventTo=$entdates->poko;
             }
         }
-
-
-
-       /*  foreach ($eventNameForPerson as $eventForPerson)
-        {
-            $eventIdForPerson=$eventForPerson->event;
-
-        }
-
-        $eventTitleForPerson=$a->select("select title from events where id=$eventIdForPerson");
-        foreach ($eventTitleForPerson as $eventDemo)
-        {
-            $eventOfPerson=$eventDemo->title;
-        }
-       */
-
-
-
-
-
+        /*  foreach ($eventNameForPerson as $eventForPerson)
+         {
+             $eventIdForPerson=$eventForPerson->event;
+         }
+         $eventTitleForPerson=$a->select("select title from events where id=$eventIdForPerson");
+         foreach ($eventTitleForPerson as $eventDemo)
+         {
+             $eventOfPerson=$eventDemo->title;
+         }
+        */
         $personStay=$a->select("SELECT * FROM `anwesenheit` WHERE `person` = $id");
         foreach ($personStay as $perDur)
         {
@@ -124,8 +96,6 @@ WHERE d.event=$eventIdForPerson");
             $personStayEnd=$perDur->bis;
             $personRemarks=$perDur->bemerkung;
         }
-
-
         foreach ($personInfo as $person) {
             $bank=$person->bankverbindung;
             $p_prefix=$person->p_prefix;
@@ -167,7 +137,6 @@ WHERE d.event=$eventIdForPerson");
             $university=$person->university;
             $address1=$person->street;
             $address2=$person->street2;
-
         }
         $salut=$a->select("select anrede from anreden where id=$salutation");
         foreach ($salut as $salu)
@@ -199,18 +168,18 @@ WHERE d.event=$eventIdForPerson");
         else{
             $VIP='NO VIP';
         }
-       /*
-         $statusid=$a->select("select anrede from personen WHERE id=$id");
-        foreach ($statusid as $status)
-        {
-            $title=$status->anrede;
-        }
-        $salutaion=$a->select("select anrede from anreden WHERE id=$title");
-        foreach ($salutaion as $salu)
-        {
-            $tit=$salu->anrede;
-        }
-        */
+        /*
+          $statusid=$a->select("select anrede from personen WHERE id=$id");
+         foreach ($statusid as $status)
+         {
+             $title=$status->anrede;
+         }
+         $salutaion=$a->select("select anrede from anreden WHERE id=$title");
+         foreach ($salutaion as $salu)
+         {
+             $tit=$salu->anrede;
+         }
+         */
         if ($group==20001){
             $group='HIM Guest';
         }
@@ -218,83 +187,74 @@ WHERE d.event=$eventIdForPerson");
         {
             $group='HCM Guest';
         }
-       else
+        else
         {
             $group='Management';
         }
-
-            if ($gender==1)
-            {
-                $gender='male';
-            }
-            if ($gender==2)
-            {
-                $gender='female';
-            }
-            if ($gender==null)
-            {
-                $gender='unknown';
-            }
-
-
+        if ($gender==1)
+        {
+            $gender='male';
+        }
+        if ($gender==2)
+        {
+            $gender='female';
+        }
+        if ($gender==null)
+        {
+            $gender='unknown';
+        }
         $ppp_country=$a->select("SELECT * FROM lands WHERE id=$p_land");
-            foreach ($ppp_country as $ppcountry)
-            {
-                $p_country=$ppcountry->land;
-            }
-
-            $statusOfPerson=$a->select("SELECT * FROM statusen WHERE person=$id");
-            foreach ($statusOfPerson as $statusOfGuest)
-            {
-                $guestStatus=$statusOfGuest->status;
-                $from=$statusOfGuest->von;
-                $to=$statusOfGuest->bis;
-
-            }
-            switch ($guestStatus)
-            {
-                case 10000:
-                    $guestStatus='unknown';
-                    break;
-                case 10001:
-                    $guestStatus='PHD-Student';
-                    break;
-                case 10002:
-                    $guestStatus='Post Doc';
-                    break;
-                case 10003:
-                    $guestStatus='Assistant Professor';
-                    break;
-                case 10004:
-                    $guestStatus='Assistant Professor';
-                    break;
-                case 10005:
-                    $guestStatus='Full Professor';
-                    break;
-                case 10006:
-                    $guestStatus='Graduate';
-                    break;
-                default:
-                    $guestStatus='not given';
-            }
-
-
-            $nation=$a->select("SELECT * FROM lands WHERE id=$nationality");
-            foreach ($nation as $nat)
-            {
-                $personNation=$nat->land;
-            }
-
-            $desh=$a->select("SELECT * FROM lands WHERE id=$country");
-            foreach ($desh as $des)
-            {
-                $persondesh=$des->land;
-            }
-            if ($statusPerson==null)
-            {
-                $statusPerson='unknown';
-
-            }
+        foreach ($ppp_country as $ppcountry)
+        {
+            $p_country=$ppcountry->land;
+        }
+        $statusOfPerson=$a->select("SELECT * FROM statusen WHERE person=$id");
+        foreach ($statusOfPerson as $statusOfGuest)
+        {
+            $guestStatus=$statusOfGuest->status;
+            $from=$statusOfGuest->von;
+            $to=$statusOfGuest->bis;
+        }
+        switch ($guestStatus)
+        {
+            case 10000:
+                $guestStatus='unknown';
+                break;
+            case 10001:
+                $guestStatus='PHD-Student';
+                break;
+            case 10002:
+                $guestStatus='Post Doc';
+                break;
+            case 10003:
+                $guestStatus='Assistant Professor';
+                break;
+            case 10004:
+                $guestStatus='Assistant Professor';
+                break;
+            case 10005:
+                $guestStatus='Full Professor';
+                break;
+            case 10006:
+                $guestStatus='Graduate';
+                break;
+            default:
+                $guestStatus='not given';
+        }
+        $nation=$a->select("SELECT * FROM lands WHERE id=$nationality");
+        foreach ($nation as $nat)
+        {
+            $personNation=$nat->land;
+        }
+        $desh=$a->select("SELECT * FROM lands WHERE id=$country");
+        foreach ($desh as $des)
+        {
+            $persondesh=$des->land;
+        }
+        if ($statusPerson==null)
+        {
+            $statusPerson='unknown';
+        }
         if ($personNation==null)
         {
             $personNation='unknownn';
@@ -323,40 +283,37 @@ WHERE d.event=$eventIdForPerson");
         {
             $institute2='none';
         }
-
-
-if ($address1==null)
-{
-    $address1='not given';
-}
-if ($address2==null)
-{
-    $address2='not given';
-}
-if ($university==null)
-{
-    $university='not given';
-
-}
-if ($telephone==null)
-{
-    $telephone='none';
-}
-if($phd_year==null)
-{
-    $phd_year='none';
-}
-if ($birthPlace==null)
-{
-    $birthPlace='not given';
-}
-if ($www==null)
-{
-    $www='none';
-}
-if ($fax==null){
-    $fax='none';
-}
+        if ($address1==null)
+        {
+            $address1='not given';
+        }
+        if ($address2==null)
+        {
+            $address2='not given';
+        }
+        if ($university==null)
+        {
+            $university='not given';
+        }
+        if ($telephone==null)
+        {
+            $telephone='none';
+        }
+        if($phd_year==null)
+        {
+            $phd_year='none';
+        }
+        if ($birthPlace==null)
+        {
+            $birthPlace='not given';
+        }
+        if ($www==null)
+        {
+            $www='none';
+        }
+        if ($fax==null){
+            $fax='none';
+        }
         if ($suffix==null){
             $suffix='none';
         }
@@ -372,7 +329,6 @@ if ($fax==null){
             $bank='not given';
         }
         //***finance part***
-
         $bankInfoPerson=$bank;
         $guestFinances=$a->select("select * from honorar where id=$anwesId");
         foreach ($guestFinances as $guestFin)
@@ -389,10 +345,7 @@ if ($fax==null){
             $comment=$guestFin->h_s_bemerkungen;
             $CA=$guestFin->h_vertrag_v;
             $CG=$guestFin->h_vertrag_g;
-
         }
-
-
         switch ($type)
         {
             case 1: $type='per month';
@@ -402,7 +355,6 @@ if ($fax==null){
             case 3: $type='proportionally';
                 break;
             default: $type='none';
-
         }
         if ($number==null)
         {$number='none';}
@@ -426,21 +378,21 @@ if ($fax==null){
         switch ($perDiem)
         {
             case 1: $perDiem='Ja';
-            break;
+                break;
             case 2: $perDiem='Anteiling';
-            break;
+                break;
             default: $perDiem='Nein';
         }
         switch ($travelExpenses)
         {
             case 1: $travelExpenses='ja';
-            break;
+                break;
             case 2:$travelExpenses='angefragt';
-            break;
+                break;
             case 3: $travelExpenses='anteilig';
-            break;
+                break;
             case 4: $travelExpenses='statement erforderlich';
-            break;
+                break;
             default: $travelExpenses='nein';
         }
         if ($maximal==null)
@@ -458,7 +410,6 @@ if ($fax==null){
         if ($CA=='0000-00-00')
         {
             $CA='not given';
-
         }
         if ($CG=='0000-00-00')
         {
@@ -494,8 +445,6 @@ if ($fax==null){
                 $occ_telefon=$occ_arbeit->telefon;
             }
         }
-
-
         //occupancy end
         //Residance Part
         $flat_place="not given";
@@ -503,24 +452,42 @@ if ($fax==null){
         $flat_street="not given";
         $flats_id=-9999;
         $residence=Residance::where('mieter',"$id")->get();
+        if ($residence!=null){
+            foreach ($residence as $resi)
+            {
+                $flats_id=$resi->wohnung;
+            }
+            $flats_details=Flat::where('id',$flats_id)->get();
+            foreach ($flats_details as $flat_information)
+            {
+                $flat_place=$flat_information->ort;
+                $flat_floor=$flat_information->etage;
+                $flat_street=$flat_information->strasse;
+            }
+        }
 
-       if ($residence!=null){
-           foreach ($residence as $resi)
-           {
-               $flats_id=$resi->wohnung;
+        $residencetesting=$a->
+        select("SELECT distinct(wohnung) FROM wohnbelegung WHERE
+(von<2008-09-01 AND bis<2008-10-31) OR 
+(von>2008-09-01 and bis>2008-10-31)");
+        $cc=0;
+        foreach ($residencetesting as $testResidence)
+        {
+            $cc=$cc+count($testResidence);
+            for ($i=1;$i<=$cc;$i++)
+            {
+                $arr[$cc]=$testResidence->wohnung;
+            }
 
-           }
-           $flats_details=Flat::where('id',$flats_id)->get();
-           foreach ($flats_details as $flat_information)
-           {
-               $flat_place=$flat_information->ort;
-               $flat_floor=$flat_information->etage;
-               $flat_street=$flat_information->strasse;
-           }
-       }
+        }
+       for ($j=1;$j<=$cc;$j++)
+        {
+            $vacentFlats[$j]=$a->
+            select("select * from wohnungen where id=$arr[$j]");
+        }
 
-       //Residance End
 
+        //Residance End
         //hotels start
         $hotelsdate=HotelReserve::where('person',$id)->get();
         $personHotel='none';
@@ -529,62 +496,56 @@ if ($fax==null){
         $hotelId='none';
         $hotelZimmer='none';
         $hotelName='none';
-       if ($hotelsdate!=null){
-           foreach ($hotelsdate as $hoteldate)
-           {
-               $personHotel=$hoteldate->person;
-               $hotelFrom=$hoteldate->von;
-               $hotelTo=$hoteldate->bis;
-               $hotelId=$hoteldate->hotel;
-               $hotelZimmer=$hoteldate->zimmer;
-           }
-           switch ($hotelZimmer)
-           {
-               case 0: $hotelZimmer='EZ';
-               break;
-               case 1: $hotelZimmer='Dz';
-               break;
-               case 2: $hotelZimmer='3 Bett';
-               break;
-               case 3: $hotelZimmer='Suite';
-               break;
-               case 4: $hotelZimmer='twin';
-               break;
-               default: $hotelZimmer='none';
-           }
-           $hotelDetails=Hotel::where('id',$hotelId)->get();
-           foreach ($hotelDetails as $hotelinfo)
-           {
-               $hotelName=$hotelinfo->name;
-           }
-       }
-
+        if ($hotelsdate!=null){
+            foreach ($hotelsdate as $hoteldate)
+            {
+                $personHotel=$hoteldate->person;
+                $hotelFrom=$hoteldate->von;
+                $hotelTo=$hoteldate->bis;
+                $hotelId=$hoteldate->hotel;
+                $hotelZimmer=$hoteldate->zimmer;
+            }
+            switch ($hotelZimmer)
+            {
+                case 0: $hotelZimmer='EZ';
+                    break;
+                case 1: $hotelZimmer='Dz';
+                    break;
+                case 2: $hotelZimmer='3 Bett';
+                    break;
+                case 3: $hotelZimmer='Suite';
+                    break;
+                case 4: $hotelZimmer='twin';
+                    break;
+                default: $hotelZimmer='none';
+            }
+            $hotelDetails=Hotel::where('id',$hotelId)->get();
+            foreach ($hotelDetails as $hotelinfo)
+            {
+                $hotelName=$hotelinfo->name;
+            }
+        }
         //hotels end
-
-            return view('personalDetail',compact([
-                'hotelFrom','hotelTo','hotelZimmer','hotelName',
-                'flat_place','flat_floor','flat_street',
-                'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
-                'mail1','sal','mail2','gender','name','suffix','persondesh',
+        return view('personalDetail',compact([
+            'hotelFrom','hotelTo','hotelZimmer','hotelName',
+            'flat_place','flat_floor','flat_street','vacentFlats',
+            'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
+            'mail1','sal','mail2','gender','name','suffix','persondesh',
             'statusPerson','VIP','telephone','tit','personNation','persondesh',
             'vorname','street','place','prefix','group','eventIdForPerson',
             'account', 'www','institute1','institute2','address2',
-                'birthDay','remarks','birthPlace','fax','university','address1',
-                'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
-               'p_phone','p_prefix','bank','guestStatus','from','to','eventOfPerson',
-                'eventFrom','eventTo','guestStayFrom','guestStayTo',
-                'guestInviteFrom','guestInviteTo','$bankInfoPerson','personRemarks',
-'honorar', 'type', 'number', 'accoCost','housingBeniffit', 'perDiem'
+            'birthDay','remarks','birthPlace','fax','university','address1',
+            'nameSuffix','p_street','p_suffix','p_place','p_country','phd_year',
+            'p_phone','p_prefix','bank','guestStatus','from','to','eventOfPerson',
+            'eventFrom','eventTo','guestStayFrom','guestStayTo',
+            'guestInviteFrom','guestInviteTo','$bankInfoPerson','personRemarks',
+            'honorar', 'type', 'number', 'accoCost','housingBeniffit', 'perDiem'
             ,'travelExpenses','maximal','sonstige','comment','CA','CG']));
-        }
-
-
+    }
     public function searchPerson(Request $request){
         $firstname=$request['firstname'];
         $lastname=$request['lastname'];
         $university=$request['university'];
-
-
         if($firstname==null){
             $firstname='fsknjvkjfshvkjshf';
         }
@@ -597,14 +558,9 @@ if ($fax==null){
         $a=DB::connection('mysql2');
         $b=$a->select("SELECT * FROM personen WHERE vorname LIKE '%$firstname%' 
 or name LIKE '%$lastname%' or university LIKE '%$university%'");
-
         //echo "firstName $firstname"."<br>";
         //echo "LastName $lastname"."<br>";
         //echo "university $university"."<br>";
-       return view('showDetail', ['posts' => $b]);
-
-
-
+        return view('showDetail', ['posts' => $b]);
     }
-
 }
