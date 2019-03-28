@@ -195,7 +195,9 @@
                                         <td>{{$vacF->wohnungs_nr}}</td>
                                         <td>{{$vacF->etage}}</td>
 
-                                        <td><a href="#" button type="button" class="btn btn-success">Book this</abutton></td>
+                                        <td>
+                                            <a href="{{ route('PersonDetailInfo',$vacF->id) }}"
+                                               button type="button" class="btn btn-success">Book this</abutton></td>
                                     </tr>
                                     @endforeach
                                             @endforeach
@@ -205,6 +207,7 @@
 
                         </table>
                     </div>
+
 
                 </div>
 

@@ -29,6 +29,8 @@ class personInformation extends Controller
         $comment='none';
         $CA='none';
         $CG='none';
+        $personStayStart='none';
+        $personStayEnd='none';
         $guestStayFrom='none';
         $guestStayTo='none';
         $personRemarks='none';
@@ -87,6 +89,8 @@ WHERE d.event=$eventIdForPerson");
              $eventOfPerson=$eventDemo->title;
          }
         */
+        $personStayStart='none';
+        $personStayEnd='none';
         $personStay=$a->select("SELECT * FROM `anwesenheit` WHERE `person` = $id");
         foreach ($personStay as $perDur)
         {
@@ -446,6 +450,7 @@ WHERE d.event=$eventIdForPerson");
             }
         }
         //occupancy end
+
         //Residance Part
         $flat_place="not given";
         $flat_floor="not given";
@@ -466,27 +471,40 @@ WHERE d.event=$eventIdForPerson");
             }
         }
 
-        $residencetesting=$a->
-        select("SELECT distinct(wohnung) FROM wohnbelegung WHERE
-(von<$personStayStart AND bis<$personStayEnd) OR 
-(von>$personStayStart and bis>$personStayEnd)");
-        $cc=0;
-        foreach ($residencetesting as $testResidence)
-        {
-            $cc=$cc+count($testResidence);
-            for ($i=1;$i<=$cc;$i++)
-            {
-                $arr[$cc]=$testResidence->wohnung;
-            }
+
+        $vacentFlats=null;
+
+if ($guestStayFrom!='none' and $guestStayTo!='none') {
+    $residencetesting = $a->
+    select("SELECT DISTINCT(wohnung),id FROM 
+wohnbelegung WHERE bis<date('$guestStayFrom') OR von>date('$guestStayTo')
+ GROUP BY wohnung ORDER BY id DESC");
+
+    $cc = 0;
+    foreach ($residencetesting as $testResidence) {
+       $cc = $cc + count($testResidence);
+
+        for ($i = 1; $i <= $cc; $i++) {
+            //echo "room: $testResidence->wohnung. id:$testResidence->id<br>";
+            $arr[$cc] = $testResidence->wohnung;
+
 
         }
+    }
+    /*for ($k=1;$k<=$cc;$k++)
+    {
+        echo "wohnung: $arr[k] and ID:$idForRoom[$k]<br>";
+    }
+    */
 
-       for ($j=1;$j<=$cc;$j++)
-        {
-            $vacentFlats[$j]=$a->
-            select("select * from wohnungen where id=$arr[$j]");
-        }
 
+    for ($j = 1; $j <= $cc; $j++) {
+        $vacentFlats[$j] = $a->
+        select("select * from wohnungen where id=$arr[$j]");
+
+    }
+
+}
 
         //Residance End
         //hotels start

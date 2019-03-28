@@ -19,7 +19,7 @@ Route::get('/', function () {
 */
 Auth::routes();
 //person Controller
-ROute::get('/personStay','personInformation@PersonDetailInfo');
+Route::get('/personStay','personInformation@PersonDetailInfo');
 Route::get('/PersonDetailInfo/{id}', 'personInformation@PersonDetailInfo')
     ->name('PersonDetailInfo');
 Route::get('/searchPerson', 'personInformation@searchPerson')->name('searchPerson');
