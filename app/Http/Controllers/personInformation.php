@@ -476,35 +476,47 @@ WHERE d.event=$eventIdForPerson");
 
 if ($guestStayFrom!='none' and $guestStayTo!='none') {
     $residencetesting = $a->
-    select("SELECT DISTINCT(wohnung),id FROM 
-wohnbelegung WHERE bis<date('$guestStayFrom') OR von>date('$guestStayTo')
- GROUP BY wohnung ORDER BY id DESC");
+    select("SELECT DISTINCT(wohnung),max(id) as id FROM 
+wohnbelegung GROUP BY wohnung ");
 
     $cc = 0;
     foreach ($residencetesting as $testResidence) {
-       $cc = $cc + count($testResidence);
+        $cc = $cc + count($testResidence);
 
         for ($i = 1; $i <= $cc; $i++) {
-            //echo "room: $testResidence->wohnung. id:$testResidence->id<br>";
+            $residenceId[$cc]=$testResidence->id;
             $arr[$cc] = $testResidence->wohnung;
-
-
         }
     }
-    /*for ($k=1;$k<=$cc;$k++)
+    //echo count($arr);
+    for ($k=1;$k<=count($arr);$k++)
     {
-        echo "wohnung: $arr[k] and ID:$idForRoom[$k]<br>";
+        $dateSearch[$k]=$a->select("select von,bis from wohnbelegung
+where id=$residenceId[$k]");
     }
-    */
+    foreach ($dateSearch as $datt)
+    {
+        foreach ($datt as $ddd){
+            echo "$ddd->von and $ddd->bis<br>";
+        }
+    }
+    for ($j = 1; $j <=$cc; $j++) {
 
+        /*
+        if (date($guestStayTo)<date($von[$j]) or
+            (date($guestStayFrom)>date($bis[$j])))
+        */
 
-    for ($j = 1; $j <= $cc; $j++) {
-        $vacentFlats[$j] = $a->
-        select("select * from wohnungen where id=$arr[$j]");
+        //echo "room number:$arr[$j] and residenceId:$residenceId[$j]<br>";
+            $vacentFlats[$j] = $a->
+            select("select * from wohnungen where id=$arr[$j]");
+
 
     }
 
 }
+
+
 
         //Residance End
         //hotels start
