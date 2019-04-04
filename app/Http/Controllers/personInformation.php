@@ -491,16 +491,28 @@ wohnbelegung GROUP BY wohnung ");
     //echo count($arr);
     for ($k=1;$k<=count($arr);$k++)
     {
-        $dateSearch[$k]=$a->select("select von,bis from wohnbelegung
+        $dateSearch[$k]=$a->select("select wohnung,id,von,bis from wohnbelegung
 where id=$residenceId[$k]");
     }
+    $ii=1;
     foreach ($dateSearch as $datt)
     {
         foreach ($datt as $ddd){
-            echo "$ddd->von and $ddd->bis<br>";
+            //echo "von:$ddd->von<br>";
+             //echo "bis:$ddd->bis<br>";
+             //echo "id:$ddd->id<br>";
+             //echo "Room number:$ddd->wohnung<br>";
+            if (date($guestStayTo)<date($ddd->von) or
+                (date($guestStayFrom)>date($ddd->bis)))
+            {
+                $brr[$ii]=$ddd->wohnung;
+                $ii++;
+            }
         }
     }
-    for ($j = 1; $j <=$cc; $j++) {
+    $pp=count($brr);
+
+    for ($j = 1; $j <=$pp; $j++) {
 
         /*
         if (date($guestStayTo)<date($von[$j]) or
@@ -509,7 +521,7 @@ where id=$residenceId[$k]");
 
         //echo "room number:$arr[$j] and residenceId:$residenceId[$j]<br>";
             $vacentFlats[$j] = $a->
-            select("select * from wohnungen where id=$arr[$j]");
+            select("select * from wohnungen where id=$brr[$j]");
 
 
     }
