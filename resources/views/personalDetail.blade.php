@@ -1,35 +1,35 @@
 @extends('layouts.masterHomePage')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-10 text-right"><a href="{{ route('showDetatilEvent',
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 text-right"><a href="{{ route('showDetatilEvent',
         ['id' =>$eventIdForPerson]) }}">
-                event: {{$eventOfPerson}}<br>
-        duration:{{$eventFrom}} To {{$eventTo}}
-            </a>
-        </div>
-    </div>
-    <br>
-
-
-
-
-
-            <div class="btn-group btn-group-justified">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#bdata">Basic Data</a></li>
-                    <li><a data-toggle="tab" href="#contact">Contact Detail</a></li>
-                    <li><a data-toggle="tab" href="#paddress">Private address</a></li>
-                    <li><a data-toggle="tab" href="#status">status</a></li>
-                    <li><a data-toggle="tab" href="#finance">Guest Visit</a></li>
-                    <li><a data-toggle="tab" href="#ccare">Child care</a></li>
-                    <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
-                    <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
-                    <li><a data-toggle="tab" href="#profile">Profile</a></li>
-                    <li><a data-toggle="tab" href="#profile">Reports</a></li>
-                </ul>
+                    event: {{$eventOfPerson}}<br>
+                    duration:{{$eventFrom}} To {{$eventTo}}
+                </a>
             </div>
+        </div>
+        <br>
+
+
+
+
+
+        <div class="btn-group btn-group-justified">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#bdata">Basic Data</a></li>
+                <li><a data-toggle="tab" href="#contact">Contact Detail</a></li>
+                <li><a data-toggle="tab" href="#paddress">Private address</a></li>
+                <li><a data-toggle="tab" href="#status">status</a></li>
+                <li><a data-toggle="tab" href="#finance">Guest Visit</a></li>
+                <li><a data-toggle="tab" href="#ccare">Child care</a></li>
+                <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
+                <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
+                <li><a data-toggle="tab" href="#profile">Profile</a></li>
+                <li><a data-toggle="tab" href="#profile">Reports</a></li>
+            </ul>
+        </div>
         <div class="tab-content">
 
             <div id="bdata" class="tab-pane fade in active">
@@ -69,7 +69,7 @@
 
 
 
-            </div>
+                </div>
             </div>
             <div id="status" class="tab-pane fade">
                 <h3>Status</h3>
@@ -137,9 +137,9 @@
                 <div class="panel panel-default">
                     <ul>
                         <li><h4>Occupancy (edit):</h4><p>from {{$occ_from}} to {{$occ_to}}<br>
-                            office:{{$occ_office}}<br>
-                            workplace:{{$occ_workplace}}<br>
-                            Telephone:{{$occ_telefon}}
+                                office:{{$occ_office}}<br>
+                                workplace:{{$occ_workplace}}<br>
+                                Telephone:{{$occ_telefon}}
                             </p>
                         </li>
                         <li><h4>Appartment(edit):</h4><p>
@@ -176,34 +176,34 @@
 
                     <div class="container">
                         <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Street</th>
-                                    <th>Appartment</th>
-                                    <th>Floor</th>
+                            <thead>
+                            <tr>
+                                <th>Street</th>
+                                <th>Appartment</th>
+                                <th>Floor</th>
 
-                                </tr>
-                                </thead>
+                            </tr>
+                            </thead>
 
-                                <tbody>
+                            <tbody>
 
-                                    <tr>
-                                        @if($vacentFlats!=null)
-                                            @foreach($vacentFlats as $vacantFlat)
-                                                @foreach($vacantFlat as $vacF)
-                                        <td>{{$vacF->strasse}}</td>
-                                        <td>{{$vacF->wohnungs_nr}}</td>
-                                        <td>{{$vacF->etage}}</td>
+                            <tr>
+                                @if($vacentFlats!=null)
+                                    @foreach($vacentFlats as $vacantFlat)
+                                        @foreach($vacantFlat as $vacF)
+                                            <td>{{$vacF->strasse}}</td>
+                                            <td>{{$vacF->wohnungs_nr}}</td>
+                                            <td>{{$vacF->etage}}</td>
 
-                                        <td>
-                                            <a href="{{ route('PersonDetailInfo',$vacF->id) }}"
-                                               button type="button" class="btn btn-success">Book this</abutton></td>
-                                    </tr>
-                                    @endforeach
-                                            @endforeach
-                                            @endif
+                                            <td>
+                                                <a href="{{ route('PersonDetailInfo',$vacF->id) }}"
+                                                   button type="button" class="btn btn-success">Book this</abutton></td>
+                            </tr>
+                            @endforeach
+                            @endforeach
+                            @endif
 
-                                </tbody>
+                            </tbody>
 
                         </table>
                     </div>
@@ -213,38 +213,38 @@
 
 
             </div>
-                <!--vacent office start-->
+            <!--vacent office start-->
 
 
-                <!--current location-->
+            <!--current location-->
 
 
             <div id="contact" class="tab-pane fade">
                 <h3>Contact Detail</h3>
                 <div class="panel panel-default">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="panel-body"><h5>Telephone</h5> {{$telephone}}</div>
-                    <div class="panel-body"><h5>Email</h5> {{$mail1}} ,{{$mail2}}</div>
-                    <div class="panel-body"><h5>Fax</h5> {{$fax}}</div>
-                    <div class="panel-body"><h5>Institutions</h5>
-                        {{$institute1}} , {{$institute2}}</div>
-                </div>
-                <div class="col-md-4">
-                    <div class="panel-body"><h5>WWW</h5> {{$www}}</div>
-                    <div class="panel-body"><h5>University</h5>{{$university}}</div>
-                    <div class="panel-body"><h5>Address1</h5>{{$address1}}</div>
-                    <div class="panel-body"><h5>Address2</h5>{{$address2}}</div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>Telephone</h5> {{$telephone}}</div>
+                            <div class="panel-body"><h5>Email</h5> {{$mail1}} ,{{$mail2}}</div>
+                            <div class="panel-body"><h5>Fax</h5> {{$fax}}</div>
+                            <div class="panel-body"><h5>Institutions</h5>
+                                {{$institute1}} , {{$institute2}}</div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>WWW</h5> {{$www}}</div>
+                            <div class="panel-body"><h5>University</h5>{{$university}}</div>
+                            <div class="panel-body"><h5>Address1</h5>{{$address1}}</div>
+                            <div class="panel-body"><h5>Address2</h5>{{$address2}}</div>
+                        </div>
 
-                <div class="col-md-4">
-                    <div class="panel-body"><h5>prefix</h5> {{$prefix}}</div>
-                    <div class="panel-body"><h5>ort</h5>{{$place}}</div>
-                    <div class="panel-body"><h5>suffix</h5>{{$suffix}}</div>
-                    <div class="panel-body"><h5>land</h5>{{$persondesh}}</div>
-                </div>
+                        <div class="col-md-4">
+                            <div class="panel-body"><h5>prefix</h5> {{$prefix}}</div>
+                            <div class="panel-body"><h5>ort</h5>{{$place}}</div>
+                            <div class="panel-body"><h5>suffix</h5>{{$suffix}}</div>
+                            <div class="panel-body"><h5>land</h5>{{$persondesh}}</div>
+                        </div>
 
-            </div>
+                    </div>
                 </div>
 
 
@@ -331,24 +331,24 @@
                 <!--default code for here-->
             </div>
 
-                <!--ending button-->
-<div id="fin" class="tab-pane fade">
+            <!--ending button-->
+            <div id="fin" class="tab-pane fade">
 
-    <h3>Fee / reimbursement </h3>
-    <div class="btn-group btn-group-justified">
-        <ul class="nav nav-tabs">
-            <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
-            <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
-            <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-            <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
-            <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-            <li><a data-toggle="tab" href="#poko">diposit</a></li>
-            <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
+                <h3>Fee / reimbursement </h3>
+                <div class="btn-group btn-group-justified">
+                    <ul class="nav nav-tabs">
+                        <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
+                        <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
+                        <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
+                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
+                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
+                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
-        </ul>
-    </div>
+                    </ul>
+                </div>
 
-    <div class="panel panel-default">
+                <div class="panel panel-default">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="panel-body"><h5>Fees</h5> {{$honorar}}</div>
@@ -377,10 +377,10 @@
 
                         </div>
 
-                </div>
+                    </div>
 
+                </div>
             </div>
-</div>
 
 
 

@@ -531,6 +531,7 @@ where id=$residenceId[$k]");
 
 
         //Residance End
+
         //hotels start
         $hotelsdate=HotelReserve::where('person',$id)->get();
         $personHotel='none';
@@ -569,7 +570,48 @@ where id=$residenceId[$k]");
             }
         }
         //hotels end
-        return view('personalDetail',compact([
+
+        //vacant office start
+
+        $voof=$a->select
+        ("SELECT max(id) as id,arbeitsplatz FROM
+ burobelegung GROUP by arbeitsplatz");
+        $vvv=1;
+        foreach ($voof as $item) {
+            $offId[$vvv]=$item->id;
+            $vvv++;
+        }
+        $oo=count($offId);
+        for ($n=1;$n<=$oo;$n++)
+        {
+         $workplaces[$n]=$a->select("select * from burobelegung where 
+id=$offId[$n]");
+        }
+        $wof=1;
+        foreach ($workplaces as $workpla)
+        {
+            foreach ($workpla as $work)
+            {
+                if (((date($guestStayTo)<date($work->von)) or
+                    date($guestStayFrom)>date($work->bis)))
+                {
+                    $workInfo[$wof]=$work->arbeitsplatz;
+                    //echo "$work->id and $work->arbeitsplatz and $work->von and $work->bis<br>";
+                    $wof++;
+                }
+            }
+        }
+
+        $workInfoNumber=count($workInfo);
+        for ($w=1;$w<=$workInfoNumber;$w++)
+        {
+            $workplacesVacant[$w]=$a->select("select * from arbeitsplatze
+where id=$workInfo[$w]");
+        }
+        //dd($workplacesVacant);
+
+        //vacant office end
+        return view('personalDetail',compact(['workplacesVacant',
             'hotelFrom','hotelTo','hotelZimmer','hotelName',
             'flat_place','flat_floor','flat_street','vacentFlats',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
