@@ -86,8 +86,8 @@
             </div>
 
             <!--testing poko-->
-            <div id="poko" class="tab-pane fade">
-                <h3>poko</h3>
+            <div id="VC" class="tab-pane fade">
+                <h3>Vacant office</h3>
                 <!-- Standard button -->
 
                 <div class="btn-group btn-group-justified">
@@ -95,7 +95,7 @@
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
@@ -106,12 +106,64 @@
 
                 <div class="panel panel-default">
 
-                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
-                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
-                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+                    <div class="container">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>HIM</th>
+                                <th>HIM Annex</th>
+                                <th>HCM-villa Maria</th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <tr>
+                                @if($workplacesVacant!=null)
+                                    @foreach($workplacesVacant as $workplacesVacans)
+                                        @foreach($workplacesVacans as $workVanant)
+                                            <td>
+                                                @if($workVanant->haus==1)
+                                                    B:{{$workVanant->haus}},
+                                                    A:{{$workVanant->nummer}}
+                                                    @else
+                                                    none
+                                            @endif
+                                            </td>
+                                            <td>
+                                                @if($workVanant->haus==2)
+                                                    B:{{$workVanant->haus}},
+                                                    A:{{$workVanant->nummer}}
+                                                    @else
+                                                    none
+                                            @endif
+                                            </td>
+                                            <td>
+                                                @if($workVanant->haus==3)
+                                                    B:{{$workVanant->haus}},
+                                                    A:{{$workVanant->nummer}}
+                                                    @else
+                                                    none
+                                                    @endif
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ route('PersonDetailInfo',$workVanant->id) }}"
+                                                   button type="button" class="btn btn-success">Book this</abutton></td>
+                            </tr>
+                            @endforeach
+                            @endforeach
+                            @endif
+
+                            </tbody>
+
+                        </table>
+                    </div>
 
 
                 </div>
+
             </div>
             <!--ending poko-->
 
@@ -126,7 +178,7 @@
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
@@ -164,7 +216,7 @@
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
@@ -287,7 +339,7 @@
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
@@ -340,7 +392,7 @@
                         <li><a data-toggle="tab" href="#fin">Fees/reambursement</a></li>
                         <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
-                        <li><a data-toggle="tab" href="#poko">Vanant office</a></li>
+                        <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
                         <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
                         <li><a data-toggle="tab" href="#poko">diposit</a></li>
                         <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
