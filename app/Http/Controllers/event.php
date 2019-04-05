@@ -36,18 +36,17 @@ as pear from personen");
         $event=$request['event'];
         $a=DB::connection('mysql2');
         $b=null;
-        // $users=$a->select("select * from events WHERE title LIKE '%$event%'");
-        $users=$a->select("select * from personen,events WHERE events.verantwortlicher=personen.id
-AND events.title LIKE '%$event%'");
-        $che=$a->select("SELECT d.datum, d.`datum-bis` AS poko, 
-`event` from dates d, events e
- where e.id = d.event");
+        $users=$a->select
+        ("select e.id,e.title,e.type,d.`datum-bis` as poko,d.datum
+ from dates d,events e where d.event=e.id and 
+e.title like '%$event%'");
         //foreach ($users as $user)
         //{
         //   echo $user->title."<br>";
         // }
         $typo=$this->type;
-        return view('eventInfo',compact(['users','b','typo','che']));
+        //print_r($users);
+        return view('eventInfo',compact(['users','typo']));
     }
     public function showDetatilEvent($id)
     {

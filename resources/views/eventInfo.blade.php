@@ -54,7 +54,6 @@
             <tr>
                 <th>Title</th>
                 <th>Type</th>
-                <th>Responsible</th>
                 <th>start</th>
                 <th>end</th>
 
@@ -70,29 +69,14 @@
                     <tr>
                         <td>{{$user->title}}</td>
                         <td>{{$typo[$user->type]}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>
-                            @foreach($che as $ch)
-                                @if($user->id==$ch->event)
-                                    {{$ch->datum}}
-                                @endif
-                            @endforeach
-                        </td>
-                        <td>
-                        @foreach($che as $ch)
-                            @if($user->id==$ch->event)
-                                {{$ch->poko}}
+                        <td>{{$user->datum}}</td>
+                        <td>{{$user->poko}}</td>
 
-                                <td><a href="{{ route('showDetatilEvent', ['id' => $user->id]) }}"
-                                       button type="button" class="btn btn-success">detail</abutton></td>
-
-                                @endif
-                                @endforeach
-                                </td>
+                        <td><a href="{{ route('showDetatilEvent', ['id' =>$user->id]) }}"
+                               button type="button" class="btn btn-success">detail</abutton></td>
                     </tr>
-
                     </tbody>
-                @endforeach
+                    @endforeach
         </table>
     </div>
     @endif
