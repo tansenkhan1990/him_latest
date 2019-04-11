@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\BodyFunction;
 use App\Kinder;
 use Illuminate\Http\Request;
 use DB;
@@ -11,11 +12,28 @@ use App\Hotel;
 use App\HotelReserve;
 class personInformation extends Controller
 {
+    public $body=array("1000" => "BoD",
+        "1001" => "Vorsitzender BoD",
+        "2000" => "JSC",
+        "2001" => "Vorsitzender JSC",
+        "3000" => "SSC",
+        "4000" => "SAB",
+        "5000" => "Mitgliederversammlung",
+        "6000" => "Professorenversammlung",
+        "7000" => "PI Research Area1",
+        "7001" => "PI Research Area2",
+        "7009" => "PI Research Area F*",
+        "7010" => "PI Research Area G",
+        "7011" => "PI Research Area H",
+        "8000" => "Koordinator HCM"
+    );
+
     public function __construct()
     {
         $this->middleware('auth');
     }
     public function PersonDetailInfo($id){
+
         $a = DB::connection('mysql2');
         $personId=$id;
         $honorar='none';
@@ -620,11 +638,13 @@ where id=$workInfo[$w]");
         {
             $kinder='none';
         }
-
-
         //children end
+        //body function start
+        $bodyFunction=BodyFunction::where('person',$personId)->get();
+
+        //body function end
         return view('personalDetail',compact(['workplacesVacant','kinder',
-            'hotelFrom','hotelTo','hotelZimmer','hotelName',
+            'hotelFrom','hotelTo','hotelZimmer','hotelName','body','bodyFunction',
             'flat_place','flat_floor','flat_street','vacentFlats',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
             'mail1','sal','mail2','gender','name','suffix','persondesh',
