@@ -77,10 +77,22 @@
                 <!-- Standard button -->
 
                 <div class="panel panel-default">
+                    @if($kinder!='none')
+                    @foreach($kinder as $kids)
 
-                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
-                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
-                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+                    <div class="panel-body"><h5>name:</h5> {{$kids->name}}</div>
+                    <div class="panel-body"><h5>old</h5>{{$kids->alter}}</div>
+                        <div class="panel-body"><h5>Particular</h5>{{$kids->besonderheiten}}</div>
+                    <div class="panel-body"><h5></h5>
+                    @if($kids->gender==1)
+                        boy
+                        @endif
+                        @if($kids->gender==2)
+                        gril
+                        @endif
+                        @endforeach
+                        @endif
+                    </div>
 
 
                 </div>

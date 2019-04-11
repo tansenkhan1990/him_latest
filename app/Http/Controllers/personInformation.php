@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Kinder;
 use Illuminate\Http\Request;
 use DB;
 use App\Occupancy;
@@ -614,10 +615,15 @@ where id=$workInfo[$w]");
         //vacant office end
         //children start
 
+        $kinder=Kinder::where('anwesenheit',$anwesId)->get();
+        if ($kinder==null)
+        {
+            $kinder='none';
+        }
 
 
         //children end
-        return view('personalDetail',compact(['workplacesVacant',
+        return view('personalDetail',compact(['workplacesVacant','kinder',
             'hotelFrom','hotelTo','hotelZimmer','hotelName',
             'flat_place','flat_floor','flat_street','vacentFlats',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
