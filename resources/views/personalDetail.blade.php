@@ -23,7 +23,7 @@
                 <li><a data-toggle="tab" href="#paddress">Private address</a></li>
                 <li><a data-toggle="tab" href="#status">status</a></li>
                 <li><a data-toggle="tab" href="#finance">Guest Visit</a></li>
-                <li><a data-toggle="tab" href="#ccare">Child care</a></li>
+                <li><a data-toggle="tab" href="#care">Child care</a></li>
                 <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
                 <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
                 <li><a data-toggle="tab" href="#profile">Profile</a></li>
@@ -71,6 +71,23 @@
 
                 </div>
             </div>
+
+            <div id="care" class="tab-pane fade">
+                <h3>child care</h3>
+                <!-- Standard button -->
+
+                <div class="panel panel-default">
+
+                    <div class="panel-body"><h5>status:</h5> {{$guestStatus}}</div>
+                    <div class="panel-body"><h5>Stay from</h5> {{$guestStayFrom}} to {{$guestStayTo}}</div>
+                    <div class="panel-body"><h5>Invited from</h5> {{$guestInviteFrom}} to {{$guestInviteTo}}</div>
+
+
+                </div>
+            </div>
+
+
+
             <div id="status" class="tab-pane fade">
                 <h3>Status</h3>
                 <!-- Standard button -->
@@ -96,10 +113,6 @@
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
-                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
-                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
-
                     </ul>
                 </div>
 
@@ -179,9 +192,6 @@
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
-                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
-                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
                     </ul>
                 </div>
@@ -217,9 +227,6 @@
                         <li><a data-toggle="tab" href="#currentLocation">Current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
-                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
-                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
                     </ul>
                 </div>
@@ -340,9 +347,6 @@
                         <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
-                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
-                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
                     </ul>
 
@@ -393,9 +397,6 @@
                         <li><a data-toggle="tab" href="#currentLocation">current location</a></li>
                         <li><a data-toggle="tab" href="#VF">vacant flat</a></li>
                         <li><a data-toggle="tab" href="#VC">Vanant office</a></li>
-                        <li><a data-toggle="tab" href="#poko">vacant hotel</a></li>
-                        <li><a data-toggle="tab" href="#poko">diposit</a></li>
-                        <li><a data-toggle="tab" href="#poko">bill sattelement</a></li>
 
                     </ul>
                 </div>

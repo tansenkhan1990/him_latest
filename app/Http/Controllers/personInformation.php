@@ -184,6 +184,7 @@ WHERE d.event=$eventIdForPerson");
              $tit=$salu->anrede;
          }
          */
+
         if ($group==20001){
             $group='HIM Guest';
         }
@@ -611,6 +612,11 @@ where id=$workInfo[$w]");
         //dd($workplacesVacant);
 
         //vacant office end
+        //children start
+
+
+
+        //children end
         return view('personalDetail',compact(['workplacesVacant',
             'hotelFrom','hotelTo','hotelZimmer','hotelName',
             'flat_place','flat_floor','flat_street','vacentFlats',
