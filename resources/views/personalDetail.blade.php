@@ -24,7 +24,7 @@
                 <li><a data-toggle="tab" href="#status">status</a></li>
                 <li><a data-toggle="tab" href="#finance">Guest Visit</a></li>
                 <li><a data-toggle="tab" href="#care">Child care</a></li>
-                <li><a data-toggle="tab" href="#bfunction">Body/Function</a></li>
+                <li><a data-toggle="tab" href="#body">Body/Function</a></li>
                 <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
                 <li><a data-toggle="tab" href="#profile">Profile</a></li>
                 <li><a data-toggle="tab" href="#profile">Reports</a></li>
@@ -454,9 +454,24 @@
                         </div>
             </div>
 
-
-
-
-
             </div>
+
+            <!--body function start-->
+
+            <div id="body" class="tab-pane fade">
+                <h3>Body function</h3>
+                <!-- Standard button -->
+
+                <div class="panel panel-default">
+                    @if($bodyFunction!='none')
+                        @foreach($bodyFunction as $bodyf)
+                            <div class="panel-body"><h5>Function:</h5> {{$body2[$bodyf->function]}}</div>
+                            <div class="panel-body"><h5>Stay from</h5> {{$bodyf->von}}</div>
+                            <div class="panel-body"><h5>stay till</h5> {{$bodyf->bis}}</div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+
+            <!--body function end-->
 @endsection
