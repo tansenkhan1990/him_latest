@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\BodyFunction;
 use App\Kinder;
+use App\ResearchArea;
+use App\ResearchId;
 use Illuminate\Http\Request;
 use DB;
 use App\Occupancy;
@@ -645,9 +647,36 @@ where id=$workInfo[$w]");
         $bodyFunction=BodyFunction::where('person',$personId)->get();
 
         //body function end
+        //reseach area start
+        $researchIds='none';
+        $researchIdReal=null;
+        $researchNames=null;
+        $researchIds=ResearchId::where('person',$personId)->get();
+        if ($researchIds!='none')
+        {
+            foreach ($researchIds as $researchID)
+            {
+                $researchIdReal[]=$researchID->ra;
+            }
+        }
+
+        if ($researchIds!='none' and $researchIdReal!=null)
+        {
+            $resLength=count($researchIdReal);
+            for ($s=0;$s<$resLength;$s++)
+            {
+                $researchNames[]=$a->select("select * from research_areas
+where id='$researchIdReal[$s]'");
+
+            }
+        }
+
+
+
+        //research area end
         return view('personalDetail',compact(['workplacesVacant','kinder',
             'hotelFrom','hotelTo','hotelZimmer','hotelName','body2','bodyFunction',
-            'flat_place','flat_floor','flat_street','vacentFlats',
+            'flat_place','flat_floor','flat_street','vacentFlats','researchNames',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
             'mail1','sal','mail2','gender','name','suffix','persondesh',
             'statusPerson','VIP','telephone','tit','personNation','persondesh',
