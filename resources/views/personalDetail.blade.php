@@ -26,7 +26,7 @@
                 <li><a data-toggle="tab" href="#care">Child care</a></li>
                 <li><a data-toggle="tab" href="#bodyf">Body/Function</a></li>
                 <li><a data-toggle="tab" href="#RA">Research Area</a></li>
-                <li><a data-toggle="tab" href="#hactivities">Him Activities</a></li>
+                <li><a data-toggle="tab" href="#HA">Him Activities</a></li>
                 <li><a data-toggle="tab" href="#profile">Profile</a></li>
                 <li><a data-toggle="tab" href="#profile">Reports</a></li>
             </ul>
@@ -76,6 +76,28 @@
             </div>
 
 
+            <!--him activities start-->
+            <div id="HA" class="tab-pane fade">
+                <h3>HIM Activities</h3>
+                <!-- Standard button need to add the research area button-->
+
+                <div class="panel panel-default">
+                    @if($researchNames!=null)
+                        @foreach($researchNames as $researchNams)
+                            @foreach($researchNams as $resnam)
+
+                                <div class="panel-body"><h5>research area:
+                                    </h5> {{$resnam->title}}
+                                    <a href="#">edit</a>
+                                </div>
+                            @endforeach
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+            <!--him avtivities end-->
+
+
             <!--research area start-->
             <div id="RA" class="tab-pane fade">
                 <h3>Research Area</h3>
@@ -86,7 +108,10 @@
                     @foreach($researchNames as $researchNams)
                         @foreach($researchNams as $resnam)
 
-                    <div class="panel-body"><h5>research area:</h5> {{$resnam->title}}</div>
+                    <div class="panel-body"><h5>research area:
+                        </h5> {{$resnam->title}}
+                        <a href="#">edit</a>
+                    </div>
                         @endforeach
                     @endforeach
                         @endif
