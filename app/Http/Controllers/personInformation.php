@@ -69,7 +69,7 @@ class personInformation extends Controller
                 $eventIdForPerson=$eventForPerson->event;
             }
 
-           // print_r($eventIdForPerson);
+            // print_r($eventIdForPerson);
             $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
             foreach ($eventTitleForPerson as $eventDemo)
             {
@@ -498,59 +498,59 @@ WHERE d.event=$eventIdForPerson");
 
         $vacentFlats=null;
 
-if ($guestStayFrom!='none' and $guestStayTo!='none') {
-    $residencetesting = $a->
-    select("SELECT DISTINCT(wohnung),max(id) as id FROM 
+        if ($guestStayFrom!='none' and $guestStayTo!='none') {
+            $residencetesting = $a->
+            select("SELECT DISTINCT(wohnung),max(id) as id FROM 
 wohnbelegung GROUP BY wohnung ");
 
-    $cc = 0;
-    foreach ($residencetesting as $testResidence) {
-        $cc = $cc + count($testResidence);
+            $cc = 0;
+            foreach ($residencetesting as $testResidence) {
+                $cc = $cc + count($testResidence);
 
-        for ($i = 1; $i <= $cc; $i++) {
-            $residenceId[$cc]=$testResidence->id;
-            $arr[$cc] = $testResidence->wohnung;
-        }
-    }
-    //echo count($arr);
-    for ($k=1;$k<=count($arr);$k++)
-    {
-        $dateSearch[$k]=$a->select("select wohnung,id,von,bis from wohnbelegung
-where id=$residenceId[$k]");
-    }
-    $ii=1;
-    foreach ($dateSearch as $datt)
-    {
-        foreach ($datt as $ddd){
-            //echo "von:$ddd->von<br>";
-             //echo "bis:$ddd->bis<br>";
-             //echo "id:$ddd->id<br>";
-             //echo "Room number:$ddd->wohnung<br>";
-            if (date($guestStayTo)<date($ddd->von) or
-                (date($guestStayFrom)>date($ddd->bis)))
-            {
-                $brr[$ii]=$ddd->wohnung;
-                $ii++;
+                for ($i = 1; $i <= $cc; $i++) {
+                    $residenceId[$cc]=$testResidence->id;
+                    $arr[$cc] = $testResidence->wohnung;
+                }
             }
+            //echo count($arr);
+            for ($k=1;$k<=count($arr);$k++)
+            {
+                $dateSearch[$k]=$a->select("select wohnung,id,von,bis from wohnbelegung
+where id=$residenceId[$k]");
+            }
+            $ii=1;
+            foreach ($dateSearch as $datt)
+            {
+                foreach ($datt as $ddd){
+                    //echo "von:$ddd->von<br>";
+                    //echo "bis:$ddd->bis<br>";
+                    //echo "id:$ddd->id<br>";
+                    //echo "Room number:$ddd->wohnung<br>";
+                    if (date($guestStayTo)<date($ddd->von) or
+                        (date($guestStayFrom)>date($ddd->bis)))
+                    {
+                        $brr[$ii]=$ddd->wohnung;
+                        $ii++;
+                    }
+                }
+            }
+            $pp=count($brr);
+
+            for ($j = 1; $j <=$pp; $j++) {
+
+                /*
+                if (date($guestStayTo)<date($von[$j]) or
+                    (date($guestStayFrom)>date($bis[$j])))
+                */
+
+                //echo "room number:$arr[$j] and residenceId:$residenceId[$j]<br>";
+                $vacentFlats[$j] = $a->
+                select("select * from wohnungen where id=$brr[$j]");
+
+
+            }
+
         }
-    }
-    $pp=count($brr);
-
-    for ($j = 1; $j <=$pp; $j++) {
-
-        /*
-        if (date($guestStayTo)<date($von[$j]) or
-            (date($guestStayFrom)>date($bis[$j])))
-        */
-
-        //echo "room number:$arr[$j] and residenceId:$residenceId[$j]<br>";
-            $vacentFlats[$j] = $a->
-            select("select * from wohnungen where id=$brr[$j]");
-
-
-    }
-
-}
 
 
 
@@ -608,7 +608,7 @@ where id=$residenceId[$k]");
         $oo=count($offId);
         for ($n=1;$n<=$oo;$n++)
         {
-         $workplaces[$n]=$a->select("select * from burobelegung where 
+            $workplaces[$n]=$a->select("select * from burobelegung where 
 id=$offId[$n]");
         }
         $wof=1;
@@ -677,12 +677,9 @@ where id='$researchIdReal[$s]'");
 
         //event member section
         $eventNameForPerson2=$a->select("SELECT e.id as e_id,t.id as t_id,e.title
- FROM teilnehmer t,events e WHERE t.event=e.id and t.person=1287
+ FROM teilnehmer t,events e WHERE t.event=e.id and t.person=$id
 ");
-        foreach ($eventNameForPerson2 as $event44)
-        {
-            echo $event44->title."<br>";
-        }
+
 
 
         //end guest member section
