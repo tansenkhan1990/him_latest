@@ -81,6 +81,7 @@
                 <h3>HIM Activities</h3>
                 <!-- Standard button need to add the research area button-->
 
+                <div>
                 <div class="panel panel-default">
                     <h3>Member</h3>
                     @if($eventNameForPerson2!=null)
@@ -88,27 +89,31 @@
                             <div class="panel-body">
                                 {{$ent99->title}}
                                 <a href="{{ route('showDetatilEvent',
-        ['id' =>$ent99->e_id]) }}">Detail</a>
+        ['id' =>$ent99->e_id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
                             </div>
                         @endforeach
 
                     @endif
                 </div>
 
-                <div class="panel panel-default">
-                    @if($researchNames!=null)
-                        @foreach($researchNames as $researchNams)
-                            @foreach($researchNams as $resnam)
 
-                                <div class="panel-body"><h5>research area:
-                                    </h5> {{$resnam->title}}
-                                    <a href="#">edit</a>
-                                </div>
-                            @endforeach
+                <!-- Standard button need to add the research area button-->
+
+                <div class="panel panel-default">
+                    <h3>Organisar</h3>
+                    @if($organizer!=null)
+                        @foreach($organizer as $or)
+                            <div class="panel-body">
+                                {{$or->title}}
+                                <a href="{{ route('showDetatilEvent',
+        ['id' =>$or->id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
+                            </div>
                         @endforeach
+
                     @endif
                 </div>
             </div>
+
             <!--him avtivities end-->
 
             <!--research area start-->

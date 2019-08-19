@@ -679,13 +679,15 @@ where id='$researchIdReal[$s]'");
         $eventNameForPerson2=$a->select("SELECT e.id as e_id,t.id as t_id,e.title
  FROM teilnehmer t,events e WHERE t.event=e.id and t.person=$id
 ");
-
+        $organizer=$a->select("select DISTINCT(events.id),events.title
+ from events,personen where events.organiser=$id
+");
 
 
         //end guest member section
 
         return view('personalDetail',compact(['workplacesVacant','kinder',
-            'eventNameForPerson2','hotelFrom','hotelTo','hotelZimmer','hotelName','body2','bodyFunction',
+            'organizer','eventNameForPerson2','hotelFrom','hotelTo','hotelZimmer','hotelName','body2','bodyFunction',
             'flat_place','flat_floor','flat_street','vacentFlats','researchNames',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
             'mail1','sal','mail2','gender','name','suffix','persondesh',
