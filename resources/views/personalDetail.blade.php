@@ -88,8 +88,8 @@
                             <div class="panel-body">
                                 <p>{{$ent99->title}}
                                 <a href="{{ route('showDetatilEvent',
-        ['id' =>$ent99->e_id]) }}"><button type="button" class="btn btn-primary">Detail
-                                    </button></a>
+        ['id' =>$ent99->e_id]) }}">Detail
+                                    </a>
                                 </p>
                             </div>
                         @endforeach
@@ -103,7 +103,7 @@
                                 <div class="panel-body">
                                     <p>{{$or->title}}
                                     <a href="{{ route('showDetatilEvent',
-        ['id' =>$or->id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
+        ['id' =>$or->id]) }}">Detail</a>
                                     </p>
                                 </div>
                             @endforeach
@@ -119,7 +119,7 @@
                                 <div class="panel-body">
                                     <p>{{$or->title}}
                                     <a href="{{ route('showDetatilEvent',
-        ['id' =>$or->id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
+        ['id' =>$or->id]) }}">Detail</a>
                                     </p>
                                 </div>
                             @endforeach
@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="container">
-                        <h3>Region</h3>
+                        <h3>Travel</h3>
                         <p>dkfljgljjlkgjlkskjl</p>
 
                     </div>
