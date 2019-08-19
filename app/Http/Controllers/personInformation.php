@@ -68,6 +68,8 @@ class personInformation extends Controller
             {
                 $eventIdForPerson=$eventForPerson->event;
             }
+
+           // print_r($eventIdForPerson);
             $eventTitleForPerson=$a->select("select * from events where id=$eventIdForPerson");
             foreach ($eventTitleForPerson as $eventDemo)
             {
@@ -671,11 +673,22 @@ where id='$researchIdReal[$s]'");
             }
         }
 
-
-
         //research area end
+
+        //event member section
+        $eventNameForPerson2=$a->select("SELECT e.id as e_id,t.id as t_id,e.title
+ FROM teilnehmer t,events e WHERE t.event=e.id and t.person=1287
+");
+        foreach ($eventNameForPerson2 as $event44)
+        {
+            echo $event44->title."<br>";
+        }
+
+
+        //end guest member section
+
         return view('personalDetail',compact(['workplacesVacant','kinder',
-            'hotelFrom','hotelTo','hotelZimmer','hotelName','body2','bodyFunction',
+            'eventNameForPerson2','hotelFrom','hotelTo','hotelZimmer','hotelName','body2','bodyFunction',
             'flat_place','flat_floor','flat_street','vacentFlats','researchNames',
             'occ_from','occ_to','occ_office','occ_workplace','occ_telefon',
             'mail1','sal','mail2','gender','name','suffix','persondesh',

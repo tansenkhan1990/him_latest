@@ -82,6 +82,20 @@
                 <!-- Standard button need to add the research area button-->
 
                 <div class="panel panel-default">
+                    <h3>Member</h3>
+                    @if($eventNameForPerson2!=null)
+                        @foreach($eventNameForPerson2 as $ent99)
+                                <div class="panel-body">
+                                    {{$ent99->title}}
+                                    <a href="{{ route('showDetatilEvent',
+        ['id' =>$ent99->e_id]) }}">Detail</a>
+                                </div>
+                            @endforeach
+
+                    @endif
+                </div>
+
+                <div class="panel panel-default">
                     @if($researchNames!=null)
                         @foreach($researchNames as $researchNams)
                             @foreach($researchNams as $resnam)
@@ -96,7 +110,6 @@
                 </div>
             </div>
             <!--him avtivities end-->
-
 
             <!--research area start-->
             <div id="RA" class="tab-pane fade">
@@ -495,8 +508,9 @@
                     @foreach($kinder as $kids)
 
                         <div class="panel-body"><h5>name:</h5> {{$kids->name}}</div>
-                        <div class="panel-body"><h5>old</h5>{{$kids->alter}}</div>
-                        <div class="panel-body"><h5>Particular</h5>{{$kids->besonderheiten}}</div>
+                        <div class="panel-body"><h5>birthdate:</h5>{{$kids->alter}}</div>
+                        <div class="panel-body"><h5>Particular point:
+                            </h5>{{$kids->besonderheiten}}</div>
                         <div class="panel-body"><h5></h5>
                             @if($kids->gender==1)
                                 boy
@@ -506,10 +520,8 @@
                             @endif
                             @endforeach
                             @endif
-
                         </div>
             </div>
-
             </div>
 
 @endsection
