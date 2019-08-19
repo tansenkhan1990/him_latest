@@ -81,36 +81,61 @@
                 <h3>HIM Activities</h3>
                 <!-- Standard button need to add the research area button-->
 
-                <div>
                 <div class="panel panel-default">
                     <h3>Member</h3>
                     @if($eventNameForPerson2!=null)
                         @foreach($eventNameForPerson2 as $ent99)
                             <div class="panel-body">
-                                {{$ent99->title}}
+                                <p>{{$ent99->title}}
                                 <a href="{{ route('showDetatilEvent',
-        ['id' =>$ent99->e_id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
+        ['id' =>$ent99->e_id]) }}"><button type="button" class="btn btn-primary">Detail
+                                    </button></a>
+                                </p>
                             </div>
                         @endforeach
 
                     @endif
+
+                    <div>
+                        <h3>Organisar</h3>
+                        @if($organizer!=null)
+                            @foreach($organizer as $or)
+                                <div class="panel-body">
+                                    <p>{{$or->title}}
+                                    <a href="{{ route('showDetatilEvent',
+        ['id' =>$or->id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
+                                    </p>
+                                </div>
+                            @endforeach
+
+                        @endif
+
                 </div>
 
-
-                <!-- Standard button need to add the research area button-->
-
-                <div class="panel panel-default">
-                    <h3>Organisar</h3>
-                    @if($organizer!=null)
-                        @foreach($organizer as $or)
-                            <div class="panel-body">
-                                {{$or->title}}
-                                <a href="{{ route('showDetatilEvent',
+                    <div class="container">
+                        <h3>Responsible</h3>
+                        @if($organizer!=null)
+                            @foreach($organizer as $or)
+                                <div class="panel-body">
+                                    <p>{{$or->title}}
+                                    <a href="{{ route('showDetatilEvent',
         ['id' =>$or->id]) }}"><button type="button" class="btn btn-primary">Detail</button></a>
-                            </div>
-                        @endforeach
+                                    </p>
+                                </div>
+                            @endforeach
 
-                    @endif
+                        @endif
+
+                    </div>
+
+                    <div class="container">
+                        <h3>Region</h3>
+                        <p>dkfljgljjlkgjlkskjl</p>
+
+                    </div>
+
+
+
                 </div>
             </div>
 
