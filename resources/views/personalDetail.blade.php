@@ -534,22 +534,23 @@
 
                 <div class="panel panel-default">
 
-                    {{--@if($kinder!='none')--}}
-                        {{--@foreach($kinder as $kids)--}}
+                    @if($kinder!='none')
+                        @foreach($kinder as $kid)
+                          @foreach($kid as $kids)
 
-                            {{--<div class="panel-body"><h5>name:</h5> {{$kids->name}}</div>--}}
-                            {{--<div class="panel-body"><h5>birthdate:</h5>{{$kids->alter}}</div>--}}
-                            {{--<div class="panel-body"><h5>Particular point:--}}
-                                {{--</h5>{{$kids->besonderheiten}}</div>--}}
-                            {{--<div class="panel-body"><h5></h5>--}}
-                                {{--@if($kids->gender==1)--}}
-                                    {{--boy--}}
-                                {{--@endif--}}
-                                {{--@if($kids->gender==2)--}}
-                                    {{--gril--}}
-                                {{--@endif--}}
-                                {{--@endforeach--}}
-                                {{--@endif--}}
+                                <div class="panel-body"><h5>name: {{$kids->name}}</h5></div>
+                                <div class="panel-body"><h5>age:{{$kids->alter}} years</h5></div>
+                                <div class="panel-body"><h5>Particular point:{{$kids->besonderheiten}}</h5></div>
+                            <div class="panel-body"><h5></h5>
+                                @if($kids->gender==1)
+                                    boy
+                                @endif
+                                @if($kids->gender==2)
+                                    gril
+                                @endif
+                                @endforeach
+                                @endforeach
+                                @endif
 
                             </div>
                                 <h3>add child</h3>

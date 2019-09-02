@@ -639,12 +639,27 @@ where id=$workInfo[$w]");
 
 
         $kids=$a->select("select * from anwesenheit where person=$id");
-        $kindsArray=array();
-        foreach ($kids as $kk)
+        if ($kids!=null)
         {
-            $kindsArray[]= $kk->id;
+            $kinder=array();
+            $kindsArray=array();
+            foreach ($kids as $kk)
+            {
+                $kindsArray[]= $kk->id;
+            }
+            for ($n=0;$n<count($kindsArray);$n++)
+            {
+                $kinder[]=$a->select("select * from kinder where anwesenheit=$kindsArray[$n]");
+
+            }
+
         }
-        echo $kindsArray[1];
+        else{
+            $kinder='none';
+        }
+
+
+
 
 //        for ($i=0;$i<count($kids);$i++)
 //        {
