@@ -637,11 +637,24 @@ where id=$workInfo[$w]");
         //vacant office end
         //children start
 
-        $kinder=Kinder::where('anwesenheit',$anwesId)->get();
-        if ($kinder==null)
+
+        $kids=$a->select("select * from anwesenheit where person=$id");
+        $kindsArray=array();
+        foreach ($kids as $kk)
         {
-            $kinder='none';
+            $kindsArray[]= $kk->id;
         }
+        echo $kindsArray[1];
+
+//        for ($i=0;$i<count($kids);$i++)
+//        {
+//            $kinder[$i]=$a->select("select * from kinder where anwesenheit=");
+//        }
+
+//        if ($kinder==null)
+//        {
+//            $kinder='none';
+//        }
         //children end
         //body function start
         $body2=$this->body;
