@@ -678,28 +678,11 @@ where id=$workInfo[$w]");
 
         //body function end
         //reseach area start
-        $researchIds='none';
-        $researchIdReal=null;
-        $researchNames=null;
-        $researchIds=ResearchId::where('person',$personId)->get();
-        if ($researchIds!='none')
-        {
-            foreach ($researchIds as $researchID)
-            {
-                $researchIdReal[]=$researchID->ra;
-            }
-        }
 
-        if ($researchIds!='none' and $researchIdReal!=null)
-        {
-            $resLength=count($researchIdReal);
-            for ($s=0;$s<$resLength;$s++)
-            {
-                $researchNames[]=$a->select("select * from research_areas
-where id='$researchIdReal[$s]'");
+        $researchNames=$a->select("select * from research_areas ra,reisen r
+            where ra.id=r.ra and r.person=1287");
 
-            }
-        }
+
 
         //research area end
 

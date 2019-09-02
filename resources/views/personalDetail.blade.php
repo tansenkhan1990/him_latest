@@ -149,13 +149,10 @@
                 <div class="panel panel-default">
                     @if($researchNames!=null)
                         @foreach($researchNames as $researchNams)
-                            @foreach($researchNams as $resnam)
-
-                                <div class="panel-body"><h5>research area:
-                                    </h5> {{$resnam->title}}
-                                    <a href="#">edit</a>
-                                </div>
-                            @endforeach
+                            <h2>{{$researchNams->ort}}</h2>
+                          resesarch title: {{$researchNams->title}}
+                            <a href="#">edit</a>
+                            <br>
                         @endforeach
                     @endif
                 </div>
