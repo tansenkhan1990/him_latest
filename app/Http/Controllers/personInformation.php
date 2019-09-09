@@ -680,7 +680,7 @@ where id=$workInfo[$w]");
         //reseach area start
 
         $researchNames=$a->select("select * from research_areas ra,reisen r
-            where ra.id=r.ra and r.person=1287");
+            where ra.id=r.ra and r.person=$id");
 
 
 
