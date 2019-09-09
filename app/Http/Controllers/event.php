@@ -23,7 +23,7 @@ class event extends Controller
         $c=$a->select("SELECT d.datum, d.`datum-bis` 
 AS poko, e.title, 
 e.short_title, e.type,e.id as evnId,
- e.verantwortlicher from dates d, events e where e.id = d.event");
+ e.verantwortlicher from dates d, events e where e.id = d.event order by e.id desc");
         $b=$a->select("SELECT vorname,name, personen.id 
 as pear from personen");
         $users=null;
