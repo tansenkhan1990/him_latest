@@ -45,18 +45,20 @@
                 <td>{{$short_title}}</td>
                 <td>{{$type}}</td>
                 <td>
-                    @foreach($userName as $us)
+                    @foreach($userName as $us1)
+                        @foreach($us1 as $us)
                         {{$us->name}} {{$us->vorname}}
+                        @endforeach
                         @endforeach
                 </td>
                 <td>
-                   @foreach ($pok as $pk)
 
-                    @foreach ($pk as $p)
-                        {{$p->name}} {{$p->vorname}},
+                    @foreach ($pok as $pak)
+                        @foreach ($pak as $bag)
+                        {{$bag->vorname}}<br>
+                        @endforeach
                         @endforeach
 
-                    @endforeach
 
                 </td>
                 <td>

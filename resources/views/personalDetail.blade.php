@@ -130,7 +130,18 @@
 
                     <div class="container">
                         <h3>Travel</h3>
-                        <p>dkfljgljjlkgjlkskjl</p>
+                        <p>
+
+                        @if($researchNames!=null)
+                            @foreach($researchNames as $researchNams)
+                                <h2>{{$researchNams->ort}}</h2>
+                                resesarch title: {{$researchNams->title}}
+                                <a href="#">edit</a>
+                                <br>
+                                @endforeach
+                                @endif
+
+                        </p>
 
                     </div>
 

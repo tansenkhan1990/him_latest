@@ -57,9 +57,17 @@ e.title like '%$event%'");
             $userId =$user->verantwortlicher;
         }
         $aa = explode(',', $userId);
-        //echo $aa[0];
-        $userName=$a->select("select name,vorname from personen 
-where personen.id=$aa[0]");
+
+        $len1=count($aa);
+        $i1 = 0;
+        //print_r($organizer);
+        while ($i1 < $len1) {
+            $userName[$i1] = $a->select("select name,vorname from personen 
+where personen.id=$aa[$i1]");
+            $i1++;
+        }
+
+
         $pr = $a->select("select * from events where id='$id'");
         $dat = $a->select("SELECT d.datum, d.`datum-bis` AS poko from dates d where d.event=$id");
         foreach ($dat as $dats) {
@@ -83,10 +91,14 @@ where personen.id=$aa[0]");
 where research_areas.id=$researchAreaId[0]");
         }
         $i = 0;
+        //print_r($organizer);
         while ($i < $len) {
             $pok[$i] = $a->select("select name,vorname from personen WHERE id=$organizer[$i]");
             $i++;
         }
+
+
+
         $evtId=$id;
         return view('eventDetail', compact(['pok','research','userName',
             'evtId','users','start', 'type', 'end', 'title', 'short_title','budget'
