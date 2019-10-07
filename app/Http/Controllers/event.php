@@ -21,7 +21,7 @@ class event extends Controller
     public function participants($id)
     {
 
-        return view('participants');
+        return view('participants',compact(['id']));
     }
 
     public function autosuggest(Request $request)
