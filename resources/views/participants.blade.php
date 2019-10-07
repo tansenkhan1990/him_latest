@@ -20,24 +20,69 @@
         <a href="{{route('participants',['id' =>$id])}}"
            button type="button" class="btn btn-primary">Perticipant</abutton>
         </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Add Group +</abutton>
+        </a>
     </div>
     <br>
 
     <div class="container">
 
+
         <div class="row">
-            <div class="col-md-8">.col-md-8</div>
-            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-2">
+                <h2>Report</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h2>Registration</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h2>Einladungen</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+
+            <div class="col-md-2">
+                <h2>Organisatoren</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h2>Teilnehmer</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h2>Kontingente</h2>
+                <ul class="list-group">
+                    <li class="list-group-item">First item</li>
+                    <li class="list-group-item">Second item</li>
+                    <li class="list-group-item">Third item</li>
+                </ul>
+            </div>
+
         </div>
-        <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4">.col-md-4</div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">.col-md-6</div>
-            <div class="col-md-6">.col-md-6</div>
-        </div>
+
+
 
     </div>
 
