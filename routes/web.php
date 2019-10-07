@@ -47,6 +47,7 @@ Route::get('/sendMail', 'Userview@sendMail')->name('sendMail');
 //start event controller
 
 Route::get('/event', 'event@getEventPage')->name('event');
+Route::get('/autosuggest', 'event@autosuggest')->name('autosuggest');
 Route::get('/searchEvent', 'event@searchEvent')->name('searchEvent');
 Route::get('/showDetatilEvent/{id}', 'event@showDetatilEvent')->name('showDetatilEvent');
 

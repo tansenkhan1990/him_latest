@@ -1,26 +1,26 @@
 @extends('layouts.masterHomePage')
 @section('content')
-<div class="container center_div">
+    <div class="container center_div">
 
-    <form class="navbar-form navbar-left"  action="{{route('searchEvent')}}">
-        <div class="form-group">
-            <input type="text" name="event" class="form-control" placeholder="search event
+        <form class="navbar-form navbar-left"  action="{{route('searchEvent')}}">
+            <div class="form-group">
+                <input type="text" name="event" class="form-control" placeholder="search event
  with title" >
-        </div>
-        <button type="submit" class="btn btn-primary">search</button>
-    </form>
-</div>
-<br>
-<div class="container">
-    <a href="{{ route('showDetatilEvent', ['id' =>$evtId]) }}"
-       button type="button" class="btn btn-primary">basic data</abutton>
-    </a>
-    <a href="#"
-       button type="button" class="btn btn-primary">participants</abutton>
-    </a>
-</div>
+            </div>
+            <button type="submit" class="btn btn-primary">search</button>
+        </form>
+    </div>
+    <br>
+    <div class="container">
+        <a href="{{ route('showDetatilEvent', ['id' =>$evtId]) }}"
+           button type="button" class="btn btn-primary">basic data</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">participants</abutton>
+        </a>
+    </div>
 
-<br>
+    <br>
 
     <div class="container">
         <table class="table table-bordered table-hover">
@@ -32,10 +32,11 @@
                 <th>Responsible</th>
                 <th>Organizer</th>
                 <th>Research Area</th>
-                <th>Research Letter</th>
+                <th>Institute</th>
                 <th>Start Date</th>
                 <th>End Date</th>
                 <th>budget</th>
+                <th>Bemerkungen</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -47,17 +48,17 @@
                 <td>
                     @foreach($userName as $us1)
                         @foreach($us1 as $us)
-                        {{$us->name}} {{$us->vorname}}
+                            {{$us->name}} {{$us->vorname}}
                         @endforeach
-                        @endforeach
+                    @endforeach
                 </td>
                 <td>
 
                     @foreach ($pok as $pak)
                         @foreach ($pak as $bag)
-                        {{$bag->vorname}}<br>
+                            {{$bag->vorname}}<br>
                         @endforeach
-                        @endforeach
+                    @endforeach
 
 
                 </td>
@@ -65,9 +66,9 @@
                     @if($research=='none')
                         none
                     @else
-                    @foreach($research as $res)
+                        @foreach($research as $res)
 
-                        {{$res->title}}
+                            {{$res->title}}
                         @endforeach
                     @endif
                 </td>
@@ -75,24 +76,28 @@
                     @if($research=='none')
                         none
                     @else
-                    @foreach($research as $res)
-                        {{$res->letter}}
+                        @foreach($research as $res)
+                            {{$res->letter}}
 
-                    @endforeach
-                        @endif
+                        @endforeach
+                    @endif
                 </td>
                 <td>{{$start}}</td>
-                    <td>{{$end}}</td>
+                <td>{{$end}}</td>
                 <td>
                     {{$budget}}
+
+                </td>
+                <td>
+                    {{$remarks}}
                 </td>
                 @if(Auth::User()->id==2)
-                <td><abutton href="#"
-                       button type="button" class="btn btn-primary">edit</abutton></a></td>
-
-                    @else
                     <td><abutton href="#"
-                           button type="button" class="btn btn-primary">Detail</abutton></a></td>
+                                 button type="button" class="btn btn-primary">edit</abutton></a></td>
+
+                @else
+                    <td><abutton href="#"
+                                 button type="button" class="btn btn-primary">Detail</abutton></a></td>
                 @endif
             </tr>
             </tbody>

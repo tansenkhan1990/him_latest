@@ -5,12 +5,13 @@
         <form class="navbar-form navbar-left"  action="{{route('searchEvent')}}">
             {{ csrf_field() }}
             <div class="form-group">
-                <input type="text" name="event" class="form-control" placeholder="search event
+                <input type="text" id='search' name="event" class="form-control" placeholder="search event
  with title" >
             </div>
             <button type="submit" class="btn btn-primary">search</button>
         </form>
     </div>
+
 
     <div class="container">
         <table class="table table-hover">
@@ -81,3 +82,4 @@
     </div>
     @endif
 @endsection
+

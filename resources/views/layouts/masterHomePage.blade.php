@@ -35,8 +35,8 @@
                 <li class="active"><a href="{{ route('home') }}">Home</a></li>
                 <li ><a href="{{route('event')}}">Event</a></li>
                 @if(Auth::user()->id==2)
-                <li><a href="{{ route('userAdd') }}">Add User </a></li>
-                <li><a href="{{ route('showUser') }}">User list</a></li>
+                    <li><a href="{{ route('userAdd') }}">Add User </a></li>
+                    <li><a href="{{ route('showUser') }}">User list</a></li>
                 @endif
             </ul>
 
@@ -59,23 +59,23 @@
     </nav>
 </div>
 <div class="container" id="ping">
-<div class="collapse" id="collapseExample">
-    <div class="well">
-        <div class="row">
+    <div class="collapse" id="collapseExample">
+        <div class="well">
+            <div class="row">
 
-            <div class="col-md-1"><button type="button" class="btn btn-default">Apartment</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Hotels</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Jobs</button></div>
-            <div class="col-md-2"><button type="button" class="btn btn-default">Receivables</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Bicyles</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Phone</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">SWB</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Report</button></div>
-            <div class="col-md-1"><button type="button" class="btn btn-default">Import</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Apartment</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Hotels</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Jobs</button></div>
+                <div class="col-md-2"><button type="button" class="btn btn-default">Receivables</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Bicyles</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Phone</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">SWB</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Report</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Import</button></div>
 
+            </div>
         </div>
     </div>
-</div>
 </div>
 @yield('content')
 

@@ -87,7 +87,7 @@
                         @foreach($eventNameForPerson2 as $ent99)
                             <div class="panel-body">
                                 <p>{{$ent99->title}}
-                                <a href="{{ route('showDetatilEvent',
+                                    <a href="{{ route('showDetatilEvent',
         ['id' =>$ent99->e_id]) }}">Detail
                                     </a>
                                 </p>
@@ -102,7 +102,7 @@
                             @foreach($organizer as $or)
                                 <div class="panel-body">
                                     <p>{{$or->title}}
-                                    <a href="{{ route('showDetatilEvent',
+                                        <a href="{{ route('showDetatilEvent',
         ['id' =>$or->id]) }}">Detail</a>
                                     </p>
                                 </div>
@@ -110,7 +110,7 @@
 
                         @endif
 
-                </div>
+                    </div>
 
                     <div class="container">
                         <h3>Responsible</h3>
@@ -118,7 +118,7 @@
                             @foreach($organizer as $or)
                                 <div class="panel-body">
                                     <p>{{$or->title}}
-                                    <a href="{{ route('showDetatilEvent',
+                                        <a href="{{ route('showDetatilEvent',
         ['id' =>$or->id]) }}">Detail</a>
                                     </p>
                                 </div>
@@ -141,7 +141,7 @@
                                 @endforeach
                                 @endif
 
-                        </p>
+                                </p>
 
                     </div>
 
@@ -161,7 +161,7 @@
                     @if($researchNames!=null)
                         @foreach($researchNames as $researchNams)
                             <h2>{{$researchNams->ort}}</h2>
-                          resesarch title: {{$researchNams->title}}
+                            resesarch title: {{$researchNams->title}}
                             <a href="#">edit</a>
                             <br>
                         @endforeach
@@ -544,25 +544,25 @@
 
                     @if($kinder!='none')
                         @foreach($kinder as $kid)
-                          @foreach($kid as $kids)
+                            @foreach($kid as $kids)
 
                                 <div class="panel-body"><h5>name: {{$kids->name}}</h5></div>
                                 <div class="panel-body"><h5>age:{{$kids->alter}} years</h5></div>
                                 <div class="panel-body"><h5>Particular point:{{$kids->besonderheiten}}</h5></div>
-                            <div class="panel-body"><h5></h5>
-                                @if($kids->gender==1)
-                                    boy
-                                @endif
-                                @if($kids->gender==2)
-                                    gril
-                                @endif
-                                @endforeach
-                                @endforeach
-                                @endif
+                                <div class="panel-body"><h5></h5>
+                                    @if($kids->gender==1)
+                                        boy
+                                    @endif
+                                    @if($kids->gender==2)
+                                        gril
+                                    @endif
+                                    @endforeach
+                                    @endforeach
+                                    @endif
 
-                            </div>
+                                </div>
                                 <h3>add child</h3>
-                        <a href="#">insert information</a>
+                                <a href="#">insert information</a>
                 </div>
             </div>
 

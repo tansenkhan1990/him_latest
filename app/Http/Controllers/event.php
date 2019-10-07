@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
+use App\Events;
 class event extends Controller
 {
     public $type=array("10001" => "workshop",
@@ -17,6 +18,17 @@ class event extends Controller
     {
         $this->middleware('auth');
     }
+
+    public function autosuggest(Request $request)
+    {
+        $search = $request->get('term');
+
+        $result = User::where('name', 'LIKE', '%'. $search. '%')->get();
+
+        return response()->json($result);
+    }
+
+
     public function getEventPage()
     {
         $a=DB::connection('mysql2');
@@ -81,6 +93,7 @@ where personen.id=$aa[$i1]");
             $budget=$p->budget;
             $short_title = $p->short_title;
             $organizer = explode(",", $p->organiser);
+            $remarks=$p->bemerkungen;
             $len = count($organizer);
         }
         if($researchAreaId==null){
@@ -88,7 +101,7 @@ where personen.id=$aa[$i1]");
         }
         else{
             $research=$a->select("select * from research_areas 
-where research_areas.id=$researchAreaId[0]");
+where research_areas.id=$researchAreaId");
         }
         $i = 0;
         //print_r($organizer);
@@ -100,7 +113,7 @@ where research_areas.id=$researchAreaId[0]");
 
 
         $evtId=$id;
-        return view('eventDetail', compact(['pok','research','userName',
+        return view('eventDetail', compact(['pok','research','userName','remarks',
             'evtId','users','start', 'type', 'end', 'title', 'short_title','budget'
         ]));
     }
