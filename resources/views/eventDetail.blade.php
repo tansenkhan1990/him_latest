@@ -15,8 +15,8 @@
         <a href="{{ route('showDetatilEvent', ['id' =>$evtId]) }}"
            button type="button" class="btn btn-primary">basic data</abutton>
         </a>
-        <a href="#"
-           button type="button" class="btn btn-primary">participants</abutton>
+        <a href="{{route('participants',['id' =>$evtId])}}"
+           button type="button" class="btn btn-primary">Perticipant</abutton>
         </a>
     </div>
 
@@ -102,7 +102,11 @@
             </tr>
             </tbody>
         </table>
+
+
+
     </div>
+
 
     <div class="footer">
         <p>@copyright by <I>Hausdorff center for Mathematics</I> </p>

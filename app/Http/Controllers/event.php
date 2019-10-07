@@ -18,6 +18,11 @@ class event extends Controller
     {
         $this->middleware('auth');
     }
+    public function participants($id)
+    {
+
+        return view('participants');
+    }
 
     public function autosuggest(Request $request)
     {

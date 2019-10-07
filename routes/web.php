@@ -50,5 +50,5 @@ Route::get('/event', 'event@getEventPage')->name('event');
 Route::get('/autosuggest', 'event@autosuggest')->name('autosuggest');
 Route::get('/searchEvent', 'event@searchEvent')->name('searchEvent');
 Route::get('/showDetatilEvent/{id}', 'event@showDetatilEvent')->name('showDetatilEvent');
-
+Route::get('/participants/{id}', 'event@participants')->name('participants');
 //end event controller

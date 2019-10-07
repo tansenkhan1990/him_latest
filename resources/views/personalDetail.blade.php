@@ -34,7 +34,6 @@
         <div class="tab-content">
 
 
-
             <div id="bdata" class="tab-pane fade in active">
                 <h3>Basic information</h3>
                 <div class="panel panel-default">
