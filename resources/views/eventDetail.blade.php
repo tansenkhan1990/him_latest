@@ -22,10 +22,7 @@
            button type="button" class="btn btn-primary">Reports</abutton>
         </a>
         <a href="#"
-           button type="button" class="btn btn-primary">Invitation</abutton>
-        </a>
-        <a href="#"
-           button type="button" class="btn btn-primary">Quotas</abutton>
+           button type="button" class="btn btn-primary">Invitation and quotas</abutton>
         </a>
         <a href="#"
            button type="button" class="btn btn-primary">Add Group +</abutton>
