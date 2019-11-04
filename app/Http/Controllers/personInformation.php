@@ -690,7 +690,7 @@ where id=$workInfo[$w]");
         $eventNameForPerson2=$a->select("SELECT e.id as e_id,t.id as t_id,e.title
  FROM teilnehmer t,events e WHERE t.event=e.id and t.person=$id
 ");
-        $organizer=$a->select("select DISTINCT(events.id),events.title
+        $organizer=$a->select("select DISTINCT(events.id),events.title,events.short_title
  from events,personen where events.organiser=$id
 ");
 

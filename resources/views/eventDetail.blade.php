@@ -18,6 +18,18 @@
         <a href="{{route('participants',['id' =>$evtId])}}"
            button type="button" class="btn btn-primary">Perticipant</abutton>
         </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Reports</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Invitation</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Quotas</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Add Group +</abutton>
+        </a>
     </div>
 
     <br>

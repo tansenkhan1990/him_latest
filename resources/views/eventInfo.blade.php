@@ -18,7 +18,7 @@
             @if(isset($c))
             <thead>
             <tr>
-                <th>Title</th>
+                <th>title</th>
                 <th>short_title</th>
                 <th>Type</th>
                 <th>start</th>
