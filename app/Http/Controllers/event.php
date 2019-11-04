@@ -21,7 +21,14 @@ class event extends Controller
     public function participants($id)
     {
 
-        return view('participants',compact(['id']));
+        $a=DB::connection('mysql2');
+
+        $registrations=$a->select("SELECT * FROM `registrations` WHERE event=$id");
+        $telemar=$a->
+        select("select * from `teilnehmer` JOIN `personen`
+ WHERE teilnehmer.person=personen.id and teilnehmer.event=$id");
+
+        return view('participants',compact(['id','registrations','telemar']));
     }
 
     public function autosuggest(Request $request)

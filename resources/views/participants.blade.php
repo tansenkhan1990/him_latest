@@ -39,18 +39,41 @@
             <div class="col-md-6">
                 <h2>Registration</h2>
                 <ul class="list-group">
-                    <li class="list-group-item">First item</li>
-                    <li class="list-group-item">Second item</li>
-                    <li class="list-group-item">Third item</li>
+                    @if($registrations)
+                        @foreach($registrations as $reg)
+                    <li class="list-group-item">{{$reg->first_name}} ,
+                        @if($reg->status==0)
+                        {{$reg->family_name}} (open)
+                        @endif
+                        @if($reg->status==1)
+                            {{$reg->family_name}} (decline)
+                        @endif
+                        @if($reg->status==2)
+                            {{$reg->family_name}} (accepted)
+                        @endif
+                        @if($reg->status==3)
+                            {{$reg->family_name}} (withdraw)
+                        @endif
+
+                        <a href="#">edit</a>
+                    </li>
+                        @endforeach
+                        @endif
                 </ul>
             </div>
 
             <div class="col-md-6">
                 <h2>Teilnehmer</h2>
                 <ul class="list-group">
-                    <li class="list-group-item">First item</li>
-                    <li class="list-group-item">Second item</li>
-                    <li class="list-group-item">Third item</li>
+                    @if($telemar)
+                        @foreach($telemar as $tel)
+                    <li class="list-group-item">
+                        {{$tel->vorname}}, {{$tel->name}}
+                    <a href="#">edit</a>
+                    </li>
+
+                        @endforeach
+                        @endif
                 </ul>
             </div>
 
@@ -62,7 +85,5 @@
 
 
 
-    <div class="footer">
-        <p>@copyright by <I>Hausdorff center for Mathematics</I> </p>
-    </div>
+
 @endsection
