@@ -22,6 +22,7 @@ class event extends Controller
     {
 
         $a=DB::connection('mysql2');
+        $organiser=$a->select("SELECT * FROM `events` WHERE id=$id");
 
         $registrations=$a->select("SELECT * FROM `registrations` WHERE event=$id");
         $telemar=$a->
