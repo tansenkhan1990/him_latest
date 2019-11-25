@@ -18,19 +18,20 @@ class event extends Controller
     {
         $this->middleware('auth');
     }
+
     public function participants($id)
     {
+        $invitation=null;
+        $organiser=null;
         $a=DB::connection('mysql2');
+        $invitation=$a->select("SELECT p.vorname as p_vorname, p.name as p_name, p.id as p_id FROM `einladungen` as e join personen as p WHERE p.id=e.person and e.event=$id");
         $organiser=$a->select("SELECT p.id as p_id,p.vorname as p_vorname,p.name as p_name from events as e join personen as p WHERE e.organiser=p.id and e.id=$id");
         $registrations=$a->select("SELECT * FROM `registrations` WHERE event=$id");
         $telemar=$a->
         select("select * from `teilnehmer` JOIN `personen`
  WHERE teilnehmer.person=personen.id and teilnehmer.event=$id");
-        if ($organiser==null)
-        {
-            $organiser='no Organiser';
-        }
-        return view('participants',compact(['id','registrations','telemar','organiser']));
+
+        return view('participants',compact(['invitation','id','registrations','telemar','organiser']));
     }
     public function autosuggest(Request $request)
     {

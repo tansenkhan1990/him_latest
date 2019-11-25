@@ -21,9 +21,8 @@
            button type="button" class="btn btn-primary">Perticipant</abutton>
         </a>
 
-        <a href="#"
-           button type="button" class="btn btn-primary">Invitation and quotas</abutton>
-        </a>
+        <a data-toggle="tab" href="#contact">Invitation</a>
+
         <a href="#"
            button type="button" class="btn btn-primary">Reports</abutton>
         </a>
@@ -83,6 +82,8 @@
                         @endif
                 </ul>
             </div>
+
+
 
         </div>
 
