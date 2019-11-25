@@ -34,7 +34,14 @@
     <br>
 
     <div class="container">
-        Orgainzer:demo name for organizar<a href="#">  detail</a>
+        <p>
+            @if($organiser!=null)
+            @foreach($organiser as $org)
+                {{$org->p_vorname}}, {{$org->p_name}}
+            <a href="{{ route('PersonDetailInfo', ['id' =>$org->p_id]) }}">  detail</a>
+        @endforeach
+                @endif
+        </p>
         <div class="row">
             <div class="col-md-6">
                 <h2>Registration</h2>

@@ -20,28 +20,24 @@ class event extends Controller
     }
     public function participants($id)
     {
-
         $a=DB::connection('mysql2');
-        $organiser=$a->select("SELECT * FROM `events` WHERE id=$id");
-
+        $organiser=$a->select("SELECT p.id as p_id,p.vorname as p_vorname,p.name as p_name from events as e join personen as p WHERE e.organiser=p.id and e.id=$id");
         $registrations=$a->select("SELECT * FROM `registrations` WHERE event=$id");
         $telemar=$a->
         select("select * from `teilnehmer` JOIN `personen`
  WHERE teilnehmer.person=personen.id and teilnehmer.event=$id");
-
-        return view('participants',compact(['id','registrations','telemar']));
+        if ($organiser==null)
+        {
+            $organiser='no Organiser';
+        }
+        return view('participants',compact(['id','registrations','telemar','organiser']));
     }
-
     public function autosuggest(Request $request)
     {
         $search = $request->get('term');
-
         $result = User::where('name', 'LIKE', '%'. $search. '%')->get();
-
         return response()->json($result);
     }
-
-
     public function getEventPage()
     {
         $a=DB::connection('mysql2');
@@ -82,7 +78,6 @@ e.title like '%$event%'");
             $userId =$user->verantwortlicher;
         }
         $aa = explode(',', $userId);
-
         $len1=count($aa);
         $i1 = 0;
         //print_r($organizer);
@@ -91,8 +86,6 @@ e.title like '%$event%'");
 where personen.id=$aa[$i1]");
             $i1++;
         }
-
-
         $pr = $a->select("select * from events where id='$id'");
         $dat = $a->select("SELECT d.datum, d.`datum-bis` AS poko from dates d where d.event=$id");
         foreach ($dat as $dats) {
@@ -122,9 +115,6 @@ where research_areas.id=$researchAreaId");
             $pok[$i] = $a->select("select name,vorname from personen WHERE id=$organizer[$i]");
             $i++;
         }
-
-
-
         $evtId=$id;
         return view('eventDetail', compact(['pok','research','userName','remarks',
             'evtId','users','start', 'type', 'end', 'title', 'short_title','budget'
