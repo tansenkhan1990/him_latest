@@ -21,6 +21,8 @@ class event extends Controller
 
     public function hotelOverview()
     {
+        $a=DB::connection('mysql2');
+
         return view('hotelOverview');
     }
 

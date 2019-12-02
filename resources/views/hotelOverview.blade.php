@@ -14,34 +14,38 @@
     <br>
     <div class="container">
         <h2>hotels</h2>
-        <table class="table table-bordered">
+        <a href="{{route('hotelOverview')}}"><button type="button" class="btn-primary">Show Active</button></a>
+        <a href="#"><button type="button" class="btn-primary">Show Active</button></a>
+        <table class="table table-bordered table-hover">
             <thead>
             <tr>
-                <th>Hotel ( edit )
+                <th>Hotel edit
                     Sort.
                     Search</th>
                 <th>Event
                     Sort.
                     Search</th>
-                <th>Arrival Sort. Search</th>
+                <th>Arrival
+                    Sort
+                    Search</th>
                 <th>Departure Sort. Search</th>
                 <th>Number EZ
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Number of DZ
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Number Twins
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Prices
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Confirmation until
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Quota
-                    Sort.
+                    Sort
                     Search</th>
                 <th>Actions</th>
 
@@ -59,8 +63,9 @@
                 <td>john@example.com</td>
                 <td>john@example.com</td>
                 <td>john@example.com</td>
-                <td>john@example.com</td>
+                <td>edit, delete</td>
             </tr>
+
             </tbody>
         </table>
     </div>
