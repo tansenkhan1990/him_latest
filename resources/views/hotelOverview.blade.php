@@ -14,8 +14,8 @@
     <br>
     <div class="container">
         <h2>hotels</h2>
-        <a href="{{route('hotelOverview')}}"><button type="button" class="btn-primary">Show Active</button></a>
-        <a href="#"><button type="button" class="btn-primary">Show Active</button></a>
+        <a href="{{route('hotelOverview')}}"><button type="button" class="btn-primary">Show All</button></a>
+        <a href="#"><button type="button" class="btn-primary">Show Active</button></a><br>
         <table class="table table-bordered table-hover">
             <thead>
             <tr>

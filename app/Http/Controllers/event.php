@@ -22,7 +22,11 @@ class event extends Controller
     public function hotelOverview()
     {
         $a=DB::connection('mysql2');
+        $hotelOverview=$a->select("select * from hotels, hotelkontingente WHERE hotelkontingente.hotel=hotels.id");
+        foreach ($hotelOverview as $hotel)
+        {
 
+        }
         return view('hotelOverview');
     }
 
