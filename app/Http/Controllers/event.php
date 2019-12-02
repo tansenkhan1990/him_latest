@@ -19,6 +19,11 @@ class event extends Controller
         $this->middleware('auth');
     }
 
+    public function hotelOverview()
+    {
+        return view('hotelOverview');
+    }
+
     public function participants($id)
     {
         $invitation=null;

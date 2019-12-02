@@ -37,6 +37,9 @@ Route::get('/userAdd', 'HomeController@userAdd')->name('userAdd')->middleware('a
 Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
+//start hotel
+Route::get('/hotelOverview', 'event@hotelOverview')->name('hotelOverview');
+//end hotel
 
 //start Userview controller
 
