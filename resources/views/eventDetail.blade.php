@@ -20,13 +20,16 @@
         </a>
 
         <a href="#"
-           button type="button" class="btn btn-primary">Invitation and quotas</abutton>
-        </a>
-        <a href="#"
-           button type="button" class="btn btn-primary">Reports</abutton>
-        </a>
-        <a href="#"
            button type="button" class="btn btn-primary">Add Group +</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Qutas +</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Sub event</abutton>
+        </a>
+        <a href="#"
+           button type="button" class="btn btn-primary">Report</abutton>
         </a>
     </div>
 
