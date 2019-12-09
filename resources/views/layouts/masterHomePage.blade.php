@@ -63,18 +63,23 @@
         <div class="well">
             <div class="row">
 
-                <div class="col-md-1"><button type="button" class="btn btn-default">Apartment</button></div>
                 <div class="col-md-1"><a href="{{route('hotelOverview')}}"><button type="button" class="btn btn-default">Hotels</button></a></div>
-                <div class="col-md-1"><button type="button" class="btn btn-default">Jobs</button></div>
                 <div class="col-md-2"><a href="{{route('cost')}}"><button type="button" class="btn btn-default">Receivables</button></a></div>
                 <div class="col-md-1">
                     <a href="{{route('phone')}}">
                     <button type="button" class="btn btn-default">Phone</button>
                     </a>
                 </div>
-                <div class="col-md-1"><button type="button" class="btn btn-default">SWB</button></div>
+                <div class="col-md-1">
+                    <a href="{{route('swb')}}">
+                    <button type="button" class="btn btn-default">
+                        SWB</button>
+                    </a>
+                </div>
                 <div class="col-md-1"><button type="button" class="btn btn-default">Report</button></div>
                 <div class="col-md-1"><button type="button" class="btn btn-default">Import</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Apartment</button></div>
+                <div class="col-md-1"><button type="button" class="btn btn-default">Jobs</button></div>
 
             </div>
         </div>

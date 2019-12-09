@@ -37,6 +37,9 @@ Route::get('/userAdd', 'HomeController@userAdd')->name('userAdd')->middleware('a
 Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
+//start swb
+Route::get('/swb', 'event@swb')->name('swb');
+//end phone
 
 //start phone
 Route::get('/phone', 'event@phone')->name('phone');

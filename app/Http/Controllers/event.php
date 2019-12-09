@@ -19,6 +19,14 @@ class event extends Controller
         $a=DB::connection('mysql2');
         $this->middleware('auth');
     }
+    public function swb()
+    {
+        $a=DB::connection('mysql2');
+        $hotelOverview=$a->select
+        ("SELECT * FROM swb,wohnungen WHERE 
+swb.id=wohnungen.swb");
+        return view('swb',compact(['hotelOverview']));
+    }
     public function phone()
     {
         $a=DB::connection('mysql2');
