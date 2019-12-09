@@ -16,8 +16,21 @@ class event extends Controller
         "10099" => "group");
     public function __construct()
     {
+        $a=DB::connection('mysql2');
         $this->middleware('auth');
     }
+    public function cost()
+    {
+        $a=DB::connection('mysql2');
+        $hotelOverview=$a->select
+        ("SELECT *,personen.name as personen_name,personen.vorname AS 
+personen_vorname,personen.id as personen_id,ausenstande.id as
+ ausenstande_id,SUM(ausenstande.kosten) as kosten 
+ from ausenstande,personen WHERE ausenstande.person=personen.id 
+GROUP BY personen.id ORDER BY ausenstande.id DESC");
+        return view('cost',compact(['hotelOverview']));
+    }
+
 
     public function hotelOverview()
     {
@@ -25,14 +38,8 @@ class event extends Controller
         $hotelOverview=$a->select("select *,hotelkontingente.abrufkontingent as hotelkontingente_abrufkontingent,hotelkontingente.bestatigung as hotelkontingente_bestatigung,hotelkontingente.preise as hotelkontingente_preise,hotelkontingente.von as hotelkontingente_von,
   hotelkontingente.bis as hotelkontingente_bis,hotelkontingente.anzahl_3 as hotelkontingente_anzahl_3,hotelkontingente.anzahl_1 as hotelkontingente_anzahl_1,hotelkontingente.anzahl_0 as hotelkontingente_anzahl_0 from events,hotels, hotelkontingente WHERE 
 hotelkontingente.hotel=hotels.id and hotelkontingente.event=events.id order BY(hotelkontingente_von) DESC");
-
         return view('hotelOverview',compact(['hotelOverview']));
     }
-    public function cost()
-    {
-        echo "no cost yet";
-    }
-
     public function hotelActive()
     {
         $a=DB::connection('mysql2');
@@ -40,10 +47,8 @@ hotelkontingente.hotel=hotels.id and hotelkontingente.event=events.id order BY(h
   hotelkontingente.bis as hotelkontingente_bis,hotelkontingente.anzahl_3 as hotelkontingente_anzahl_3,hotelkontingente.anzahl_1 as hotelkontingente_anzahl_1,hotelkontingente.anzahl_0 as hotelkontingente_anzahl_0 from events,hotels, hotelkontingente WHERE 
 hotelkontingente.hotel=hotels.id and hotelkontingente.event=events.id
  and YEAR(hotelkontingente.von) >=YEAR(CURDATE()) order BY(hotelkontingente_von) DESC");
-
         return view('hotelActive',compact(['hotelOverview']));
     }
-
     public function participants($id)
     {
         $invitation=null;
