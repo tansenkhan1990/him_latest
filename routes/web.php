@@ -38,6 +38,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
 
+//start phone
+Route::get('/phone', 'event@phone')->name('phone');
+//end phone
+
 //start cost
 Route::get('/cost', 'event@cost')->name('cost');
 //end cost
