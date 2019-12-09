@@ -37,6 +37,11 @@ Route::get('/userAdd', 'HomeController@userAdd')->name('userAdd')->middleware('a
 Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
+
+//start cost
+Route::get('/cost', 'event@cost')->name('cost');
+//end cost
+
 //start hotel
 Route::get('/hotelOverview', 'event@hotelOverview')->name('hotelOverview');
 Route::get('/hotelActive', 'event@hotelActive')->name('hotelActive');

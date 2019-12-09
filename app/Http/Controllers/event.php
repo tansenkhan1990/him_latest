@@ -28,6 +28,10 @@ hotelkontingente.hotel=hotels.id and hotelkontingente.event=events.id order BY(h
 
         return view('hotelOverview',compact(['hotelOverview']));
     }
+    public function cost()
+    {
+        echo "no cost yet";
+    }
 
     public function hotelActive()
     {
