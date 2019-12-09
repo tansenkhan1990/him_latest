@@ -56,7 +56,7 @@
             @foreach($hotelOverview as $hotel)
             <tr>
                 <td>{{$hotel->name}}</td>
-                <td>{{$hotel->title}}</td>
+                <td>{{$hotel->short_title}}</td>
                 <td>{{$hotel->hotelkontingente_von}}</td>
                 <td>{{$hotel->hotelkontingente_bis}}</td>
                 <td>{{$hotel->hotelkontingente_anzahl_0}}</td>
