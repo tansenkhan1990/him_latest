@@ -39,6 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //end home controller
 //start hotel
 Route::get('/hotelOverview', 'event@hotelOverview')->name('hotelOverview');
+Route::get('/hotelActive', 'event@hotelActive')->name('hotelActive');
 //end hotel
 
 //start Userview controller
