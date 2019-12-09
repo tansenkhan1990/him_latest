@@ -16,6 +16,7 @@
         <h2>hotels</h2>
         <a href="{{route('hotelOverview')}}"><button type="button" class="btn-primary">Show All</button></a>
         <a href="#"><button type="button" class="btn-primary">Show Active</button></a><br>
+    <br>
         <table class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -52,19 +53,27 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($hotelOverview as $hotel)
             <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
-                <td>john@example.com</td>
+                <td>{{$hotel->name}}</td>
+                <td>{{$hotel->title}}</td>
+                <td>{{$hotel->hotelkontingente_von}}</td>
+                <td>{{$hotel->hotelkontingente_bis}}</td>
+                <td>{{$hotel->hotelkontingente_anzahl_0}}</td>
+                <td>{{$hotel->hotelkontingente_anzahl_1}}</td>
+                <td>{{$hotel->hotelkontingente_anzahl_3}}</td>
+                <td>{{$hotel->hotelkontingente_preise}}</td>
+                <td>{{$hotel->hotelkontingente_bestatigung}}</td>
+                <td>@if($hotel->hotelkontingente_abrufkontingent==0)
+                hotel Quota
+                        @endif
+                    @if($hotel->hotelkontingente_abrufkontingent==1)
+                        Abrufkontingent
+                        @endif
+                </td>
                 <td>edit, delete</td>
             </tr>
+            @endforeach
 
             </tbody>
         </table>
