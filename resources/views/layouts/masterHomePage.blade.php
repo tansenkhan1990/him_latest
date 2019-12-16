@@ -110,8 +110,10 @@
         });
 
     });
-
 </script>
+<style>
+    .ui-helper-hidden-accessible { display:none; }
+</style>>
 <script>
     $(document).ready(function() {
         $( "#university" ).autocomplete({
@@ -125,7 +127,7 @@
                     success: function(data){
                         var resp = $.map(data,function(obj){
                             return obj.university;
-                        });
+                    });
 
                         response(resp);
                     }
