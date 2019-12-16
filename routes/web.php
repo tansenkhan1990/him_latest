@@ -37,9 +37,16 @@ Route::get('/userAdd', 'HomeController@userAdd')->name('userAdd')->middleware('a
 Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
+//autocomplete
+
+Route::get('autocompleteFirstName', 'event@autocompleteFirstName')->name('autocompleteFirstName');
+Route::get('autocompleteLastName', 'event@autocompleteLastName')->name('autocompleteLastName');
+Route::get('autocompleteuniversity', 'event@autocompleteuniversity')->name('autocompleteuniversity');
+
+//end autocomplete
 //start swb
 Route::get('/swb', 'event@swb')->name('swb');
-//end phone
+//end swb
 
 //start phone
 Route::get('/phone', 'event@phone')->name('phone');

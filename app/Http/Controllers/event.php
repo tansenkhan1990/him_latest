@@ -5,7 +5,7 @@ use DB;
 use App\Events;
 class event extends Controller
 {
-    public $type=array("10001" => "workshop",
+    public $type = array("10001" => "workshop",
         "10002" => "trimester program",
         "10003" => "lecture series",
         "10004" => "junior trimester program",
@@ -14,11 +14,43 @@ class event extends Controller
         "10022" => "seminar",
         "10024" => "sonstiges",
         "10099" => "group");
+
     public function __construct()
     {
-        $a=DB::connection('mysql2');
+        $a = DB::connection('mysql2');
         $this->middleware('auth');
     }
+
+    public function autocompleteFirstName(Request $request)
+    {
+        $a = DB::connection('mysql2');
+        $search = $request->get('term');
+
+        $result = $a->select("select vorname from personen 
+where vorname like '$search%'");
+        return response()->json($result);
+    }
+
+    public function autocompleteLastName(Request $request)
+    {
+        $a = DB::connection('mysql2');
+        $search = $request->get('term');
+
+        $result = $a->select("select name from personen 
+where name like '$search%'");
+        return response()->json($result);
+    }
+
+    public function autocompleteuniversity(Request $request)
+    {
+        $a = DB::connection('mysql2');
+        $search = $request->get('term');
+
+        $result = $a->select("select university from personen 
+where university like '$search%'");
+        return response()->json($result);
+    }
+
     public function swb()
     {
         $a=DB::connection('mysql2');
