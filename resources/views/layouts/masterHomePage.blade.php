@@ -110,11 +110,7 @@
         });
 
     });
-</script>
-<style>
-    .ui-helper-hidden-accessible { display:none; }
-</style>>
-<script>
+
     $(document).ready(function() {
         $( "#university" ).autocomplete({
             source: function(request, response) {
@@ -136,8 +132,7 @@
         });
 
     });
-</script>
-<script type="text/javascript">
+
     $(document).ready(function() {
         $( "#lastName" ).autocomplete({
             source: function(request, response) {
@@ -162,6 +157,7 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 
 @yield('content')
 
