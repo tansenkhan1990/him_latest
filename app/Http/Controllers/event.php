@@ -50,6 +50,15 @@ where name like '$search%'");
 where university like '$search%'");
         return response()->json($result);
     }
+    public function autosearchEvent(Request $request)
+    {
+        $a = DB::connection('mysql2');
+        $search = $request->get('term');
+
+        $result = $a->select("select title from events 
+where title like '$search%'");
+        return response()->json($result);
+    }
 
     public function swb()
     {

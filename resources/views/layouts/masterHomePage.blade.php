@@ -90,7 +90,7 @@
     <div class="container center_div">
     <form class="navbar-form navbar-left"  action="{{route('searchEvent')}}">
         <div class="form-group">
-            <input type="text" name="event" class="form-control" placeholder="search event
+            <input type="text" id="autosearchEvent" name="event" class="form-control" placeholder="search event
  with title" >
         </div>
         <button type="submit" class="btn btn-primary">search</button>
@@ -156,6 +156,28 @@
                     success: function(data){
                         var resp = $.map(data,function(obj){
                             return obj.name;
+                        });
+
+                        response(resp);
+                    }
+                });
+            },
+        });
+
+    });
+
+    $(document).ready(function() {
+        $( "#autosearchEvent" ).autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url : '{{route('autosearchEvent')}}',
+                    data: {
+                        term : request.term
+                    },
+                    dataType: "json",
+                    success: function(data){
+                        var resp = $.map(data,function(obj){
+                            return obj.title;
                         });
 
                         response(resp);

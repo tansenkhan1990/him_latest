@@ -42,6 +42,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('autocompleteFirstName', 'event@autocompleteFirstName')->name('autocompleteFirstName');
 Route::get('autocompleteLastName', 'event@autocompleteLastName')->name('autocompleteLastName');
 Route::get('autocompleteuniversity', 'event@autocompleteuniversity')->name('autocompleteuniversity');
+Route::get('autosearchEvent', 'event@autosearchEvent')->name('autosearchEvent');
 
 //end autocomplete
 //start swb
