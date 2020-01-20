@@ -60,6 +60,16 @@ where title like '$search%'");
         return response()->json($result);
     }
 
+    public function appartment()
+    {
+
+        $a=DB::connection('mysql2');
+        $tasks=$a->select
+        ("SELECT * FROM wohnbelegung,wohnungen WHERE wohnbelegung.wohnung=wohnungen.id");
+        return view('appartment',compact(['tasks']));
+
+//        return view('appartment');
+    }
     public function swb()
     {
         $a=DB::connection('mysql2');

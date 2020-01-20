@@ -37,6 +37,7 @@ Route::get('/userAdd', 'HomeController@userAdd')->name('userAdd')->middleware('a
 Route::get('/home', 'HomeController@index')->name('home');
 
 //end home controller
+
 //autocomplete
 
 Route::get('autocompleteFirstName', 'event@autocompleteFirstName')->name('autocompleteFirstName');
@@ -45,9 +46,18 @@ Route::get('autocompleteuniversity', 'event@autocompleteuniversity')->name('auto
 Route::get('autosearchEvent', 'event@autosearchEvent')->name('autosearchEvent');
 
 //end autocomplete
+
 //start swb
+
 Route::get('/swb', 'event@swb')->name('swb');
+
 //end swb
+
+//start Appartment with calander view
+
+Route::get('/appartment', 'event@appartment')->name('appartment');
+
+//end Appartment calander
 
 //start phone
 Route::get('/phone', 'event@phone')->name('phone');

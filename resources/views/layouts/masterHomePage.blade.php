@@ -5,6 +5,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
+    {{--for calander--}}
+
+    {{--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />--}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--end calander--}}
+
     <meta charset="UTF-8">
     <link href="{{ asset('style.css') }}" rel="stylesheet">
     <title>Title</title>
@@ -78,7 +89,13 @@
                             SWB</button>
                     </a>
                 </div>
-                <div class="col-md-1"><button type="button" class="btn btn-default">Apartment</button></div>
+                <div class="col-md-2">
+                    <a href="{{route('appartment')}}">
+                        <button type="button" class="btn btn-default">
+                            Appartment</button>
+                    </a>
+                </div>
+
                 <div class="col-md-1"><button type="button" class="btn btn-default">Jobs</button></div>
                 <div class="col-md-1"><button type="button" class="btn btn-default">Report</button></div>
                 <div class="col-md-1"><button type="button" class="btn btn-default">Import</button></div>
@@ -190,7 +207,6 @@
 </script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-
 
 @yield('content')
 
